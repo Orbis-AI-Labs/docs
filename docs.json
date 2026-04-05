@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "Orbis",
+  "theme": "luma",
+  "colors": {
+    "primary": "#6366F1",
+    "light": "#EEF2FF",
+    "dark": "#312E81"
+  },
+  "navbar": {
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/Orbis-AI-Labs/orbis2"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "account-setup"
+            ]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              "contacts/overview",
+              "contacts/import",
+              "contacts/enrichment",
+              "companies/overview",
+              "notes",
+              "tasks"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/google",
+              "integrations/linkedin",
+              "integrations/calendar",
+              "integrations/inbox"
+            ]
+          },
+          {
+            "group": "AI Features",
+            "pages": [
+              "ai/deep-search",
+              "ai/agents",
+              "ai/ai-fields"
+            ]
+          },
+          {
+            "group": "Customization",
+            "pages": [
+              "custom-objects",
+              "campaigns",
+              "boards",
+              "settings"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

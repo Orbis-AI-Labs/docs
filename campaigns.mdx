@@ -1,0 +1,114 @@
+---
+title: "Campaigns"
+description: "Send structured outreach sequences to groups of contacts. Campaigns let you compose personalized emails, track responses, and measure engagement — all in one place."
+---
+
+A campaign is a named outreach sequence you run against a group of contacts. Orbis generates AI-drafted emails for each recipient based on your stated goal, lets you review and send them, and then tracks replies and response rates as they come in.
+
+## What campaigns are for
+
+Campaigns are useful any time you want to reach a group of people with a consistent purpose:
+
+- Reconnecting with former colleagues
+- Introducing your product to potential users
+- Following up with leads from a conference
+- Re-engaging a list of past customers
+
+The difference between a campaign and sending emails one by one is tracking. Orbis shows you — per contact — whether an email is drafted, sent, or replied to, and rolls that up into response rate metrics across the whole campaign.
+
+## Creating a campaign
+
+<Steps>
+  <Step title="Open Campaigns">
+    Click **Campaigns** in the sidebar, or press `G` then `P`.
+  </Step>
+  <Step title="Create a new campaign">
+    Click **New Campaign**. A dialog appears.
+  </Step>
+  <Step title="Name your campaign">
+    Give the campaign a descriptive name like "Q1 Outreach" or "Post-Conference Follow-Up". A date-stamped default name is provided if you don't have one yet.
+  </Step>
+  <Step title="Set the goal or context">
+    Describe what you want to accomplish with this outreach. This is the instruction Orbis uses to draft personalized emails for each contact.
+
+    Examples:
+    - *"Outreach email to find users interested in my product"*
+    - *"Re-engage and explore collaboration opportunities"*
+    - *"Ask a question about their recent project or work"*
+
+    Use the **Quick templates** below the text field to fill in a common goal with one click.
+  </Step>
+  <Step title="Create">
+    Click **Create Campaign**. The campaign is created in **active** status with no contacts yet.
+  </Step>
+</Steps>
+
+## Adding contacts to a campaign
+
+You can add contacts to a campaign from two places:
+
+**From the Contacts list:**
+Select one or more contacts using the checkboxes, then choose **Add to Campaign** from the bulk actions toolbar at the bottom of the screen. Pick the campaign from the dropdown.
+
+**From a contact's profile:**
+Open a contact, find the **Campaigns** section, and click **Add to Campaign**.
+
+When a contact is added, Orbis queues an AI-drafted email for them based on the campaign's goal. The draft appears in the campaign's contact table ready for review.
+
+## Campaign statuses
+
+| Status | Meaning |
+|--------|---------|
+| **Active** | The campaign is running; emails can be drafted and sent |
+| **Completed** | Outreach is finished; no new sends expected |
+| **Archived** | The campaign is no longer in active use |
+
+You can update a campaign's status from the campaign detail page.
+
+## Reviewing and sending emails
+
+Open a campaign to see the contacts table. Each row shows one contact and their current email status.
+
+### Draft statuses
+
+| Status | Meaning |
+|--------|---------|
+| **Draft** | An email has been generated and is ready to review |
+| **Sending** | The email is being sent |
+| **Sent** | The email was delivered successfully |
+| **Replied** | The contact has replied to the email |
+| **Failed** | Delivery failed |
+| **Discarded** | The draft was discarded without sending |
+
+### Sending options
+
+- **Send individual email** — Click the send button on a single row to send just that draft.
+- **Send All Drafts** — Click **Send All Drafts** in the top right to send every draft in the campaign at once. Only contacts with status **Draft** are included.
+
+<Warning>
+  Sending emails through Orbis uses your connected Google account. Make sure Google is connected before sending. See [Google integration](/integrations/google) for setup instructions.
+</Warning>
+
+## Tracking campaign progress
+
+The campaign detail page shows aggregate stats across all contacts:
+
+- **Drafts** — number of emails pending send
+- **Sent** — number of emails delivered
+- **Replies** — number of contacts who replied
+- **Response rate** — replies as a percentage of sent emails
+- **Median response time** — how quickly contacts are typically responding
+
+Below the stats, the contacts table shows each person's individual status, the date the email was sent, and whether a reply was received.
+
+<Tip>
+  Filter the contacts table by status to focus on who still needs a follow-up or who has replied but hasn't been acted on yet.
+</Tip>
+
+## Reply tracking
+
+When a contact replies to a campaign email, Orbis automatically updates their status to **Replied** and records the reply timestamp. This works through your connected Gmail account — no manual tracking required.
+
+<Note>
+  Reply tracking requires a connected Gmail account. Replies are detected by matching the original email's message thread ID.
+</Note>

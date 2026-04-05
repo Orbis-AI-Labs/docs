@@ -1,0 +1,110 @@
+---
+title: "LinkedIn Import"
+description: "Import your LinkedIn connections into Orbis by uploading your LinkedIn data archive."
+---
+
+## Overview
+
+Orbis can import your LinkedIn connections, profile information, and conversation history from a LinkedIn data export. Because LinkedIn does not provide a live API for personal connections, the import works by uploading a ZIP archive that LinkedIn generates for you.
+
+<Info>
+  LinkedIn does not include email addresses for most connections in the export. Orbis will import names, job titles, companies, and LinkedIn profile URLs. Email enrichment can be performed separately using Orbis's AI enrichment features.
+</Info>
+
+---
+
+## Step 1: Export your LinkedIn data
+
+<Steps>
+  <Step title="Open LinkedIn Settings">
+    Go to [linkedin.com](https://www.linkedin.com) and click your profile photo, then **Settings & Privacy**.
+  </Step>
+  <Step title="Navigate to Data privacy">
+    In the left sidebar, click **Data privacy**.
+  </Step>
+  <Step title="Request your archive">
+    Click **Get a copy of your data**, then select **Download larger data archive** to include connections, messages, and profile information.
+  </Step>
+  <Step title="Submit the request">
+    Click **Request archive**. LinkedIn will send a download link to your email address.
+  </Step>
+  <Step title="Wait for LinkedIn">
+    LinkedIn typically delivers the archive within a few hours, but it can take up to 24 hours. Sometimes LinkedIn sends two emails — download the second one, which contains the complete archive.
+  </Step>
+  <Step title="Download the ZIP">
+    Click the download link in LinkedIn's email and save the ZIP file to your computer. Do not unzip it.
+  </Step>
+</Steps>
+
+<Tip>
+  If you have a large LinkedIn network, LinkedIn may split the archive into two separate downloads. Upload the one that contains the `Connections.csv` file — it's usually the larger of the two.
+</Tip>
+
+---
+
+## Step 2: Upload your archive to Orbis
+
+<Steps>
+  <Step title="Open the import dialog">
+    In Orbis, go to **Settings → Import** and click **Connect** next to the LinkedIn section.
+  </Step>
+  <Step title="Select your archive">
+    Click the upload area and select the ZIP file you downloaded from LinkedIn. The file must be a `.zip` and no larger than 500 MB.
+  </Step>
+  <Step title="Confirm consent">
+    Check the consent checkbox to confirm you're authorizing Orbis to process your LinkedIn data. Your archive is stored privately within your workspace.
+  </Step>
+  <Step title="Upload and wait">
+    Click **Upload archive**. Orbis uploads the file and begins processing. You can track progress in real time — the dialog shows how many contacts have been imported so far.
+  </Step>
+</Steps>
+
+<Note>
+  Processing a large archive (thousands of connections) can take several minutes. You can close the dialog and check back later — the import continues in the background. A progress bar is shown in the LinkedIn section of the Settings page while the job is running.
+</Note>
+
+---
+
+## What gets imported
+
+| Data | Imported |
+|---|---|
+| Connection name (first and last) | Yes |
+| Job title | Yes |
+| Company | Yes |
+| LinkedIn profile URL | Yes |
+| Connected date | Yes |
+| Email address | Only if LinkedIn included it (rare) |
+| Messages and conversations | Yes, if included in the archive |
+
+### How LinkedIn data enriches existing contacts
+
+When Orbis processes your archive, it compares each connection against your existing Orbis contacts:
+
+- **Match found** — If a contact already exists with the same name or LinkedIn URL, Orbis updates the existing record with any missing fields (job title, company, LinkedIn URL). No duplicate is created.
+- **No match found** — A new contact is created from the LinkedIn connection data.
+
+The `linkedin` source is recorded on each contact so you can see where the data originated.
+
+---
+
+## Limitations
+
+<Warning>
+  LinkedIn does not export email addresses for the majority of connections. If you want to find email addresses for your LinkedIn contacts, use **AI Enrichment** after the import is complete.
+</Warning>
+
+- LinkedIn archives are a point-in-time snapshot. The import does not stay in sync with LinkedIn — if a connection updates their job title on LinkedIn, Orbis will not automatically reflect that change.
+- You can re-upload a newer LinkedIn archive at any time. Orbis will update existing contacts and add any new connections found in the newer export.
+- Archives larger than 500 MB are not supported. If your archive exceeds this size, contact support.
+
+---
+
+## Monitoring import progress
+
+While the archive is processing, the LinkedIn section on the **Settings → Import** page shows a progress bar with:
+
+- Number of contacts imported so far
+- Estimated time remaining
+
+If processing pauses for any reason, a **Resume** button appears. Click it to continue where processing left off. Orbis also attempts to resume automatically up to three times before requiring manual intervention.

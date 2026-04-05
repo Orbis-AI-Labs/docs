@@ -1,0 +1,102 @@
+{
+  "projectType": "saas",
+  "projectName": "Orbis",
+  "projectDescription": "Orbis is an AI-powered contact relationship management platform that helps you manage contacts, track interactions, sync communications, and nurture relationships with your network.",
+  "theme": "luma",
+  "primaryColor": "#6366F1",
+  "lightColor": "#EEF2FF",
+  "darkColor": "#312E81",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "account-setup"
+            ]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              "contacts/overview",
+              "contacts/import",
+              "contacts/enrichment",
+              "companies/overview",
+              "notes",
+              "tasks"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/google",
+              "integrations/linkedin",
+              "integrations/calendar",
+              "integrations/inbox"
+            ]
+          },
+          {
+            "group": "AI Features",
+            "pages": [
+              "ai/deep-search",
+              "ai/agents",
+              "ai/ai-fields"
+            ]
+          },
+          {
+            "group": "Customization",
+            "pages": [
+              "custom-objects",
+              "campaigns",
+              "boards",
+              "settings"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Contact management with rich profiles, tags, and custom fields",
+    "Interaction tracking for calls, meetings, emails, and notes",
+    "Google Calendar and Gmail two-way sync",
+    "LinkedIn archive import and profile enrichment",
+    "AI-powered deep search across your network",
+    "Automated AI agents for relationship intelligence",
+    "Campaigns for outreach and follow-up workflows",
+    "Kanban-style boards for relationship pipelines",
+    "Custom objects for flexible data modeling",
+    "Analytics dashboard with relationship metrics",
+    "Reminders and task management",
+    "CSV import with LinkedIn profile support",
+    "Real-time collaborative notes",
+    "Dark/light mode and RTL language support"
+  ],
+  "publicApiSurface": [
+    "POST /auth/sign-in — Email/password and Google OAuth sign-in",
+    "POST /auth/sign-up — Create a new user account",
+    "GET /contacts — List contacts with filtering and pagination",
+    "POST /contacts — Create a new contact",
+    "GET /contacts/:id — Get a single contact with full profile",
+    "PATCH /contacts/:id — Update contact details",
+    "DELETE /contacts/:id — Delete a contact",
+    "POST /contacts-import-csv — Bulk import contacts from CSV",
+    "GET /companies — List companies",
+    "POST /companies — Create a new company",
+    "GET /calendar-events — List calendar events synced from Google",
+    "POST /google-oauth — Initiate Google OAuth flow for Gmail/Calendar/Contacts",
+    "POST /deep-search — Semantic search across contacts and interactions",
+    "POST /generate-embeddings — Generate vector embeddings for contacts",
+    "POST /agent-task-runner — Trigger an AI agent task",
+    "POST /campaigns — Create and manage outreach campaigns",
+    "POST /linkedin-archive-upload — Upload LinkedIn data export",
+    "GET /search — Full-text search across the CRM",
+    "POST /notes — Create or update collaborative notes",
+    "POST /tasks — Create tasks and reminders",
+    "GET /dashboard — Fetch analytics and relationship metrics"
+  ]
+}

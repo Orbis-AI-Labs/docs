@@ -1,0 +1,124 @@
+---
+title: "Calendar Sync"
+description: "Sync Google Calendar with Orbis to track meetings as interactions and manage events alongside your contacts."
+---
+
+## Overview
+
+Orbis syncs your Google Calendar events and links them to the contacts in your workspace. Every meeting, call, or appointment that involves one of your contacts appears on their profile as an interaction — giving you a complete picture of your relationship history without any manual logging.
+
+Calendar sync is part of the [Google Integration](/integrations/google). You must connect a Google account before calendar events appear in Orbis.
+
+---
+
+## Setting up calendar sync
+
+Calendar sync is enabled automatically when you connect your Google account.
+
+<Steps>
+  <Step title="Connect Google">
+    Go to **Settings → Connected Accounts** and click **Add Account**. Complete the Google authorization flow, accepting all requested permissions including calendar access.
+  </Step>
+  <Step title="Wait for the initial sync">
+    Orbis imports up to **6 months** of calendar history on first connection. This typically completes within a few minutes.
+  </Step>
+  <Step title="Open the Calendar view">
+    Navigate to **Calendar** in the left sidebar to see your synced events.
+  </Step>
+</Steps>
+
+<Note>
+  If you have multiple Google accounts connected, Orbis syncs calendars from all active accounts. You can show or hide individual calendars using the calendar filter in the top-right corner of the Calendar view.
+</Note>
+
+---
+
+## The Calendar view
+
+The Calendar view shows all synced events in a visual layout. You can switch between two display modes using the buttons in the top-right corner:
+
+<CardGroup cols={2}>
+  <Card title="Month view" icon="calendar">
+    See all events across the current month at a glance. Click any event to open its details.
+  </Card>
+  <Card title="Week view" icon="table-columns">
+    See events laid out by hour across a 7-day week. Drag to select a time range to create a new event.
+  </Card>
+</CardGroup>
+
+An **Agenda** panel on the right side of the calendar shows upcoming events for the next two weeks, regardless of which view is active.
+
+### Filtering events
+
+Use the **Filters** button to narrow down the events shown:
+
+- **Contact** — Show only events where a specific contact is an attendee.
+- **Tags** — Filter by tags assigned to attendee contacts.
+- **Keywords** — Search by event title, location, or description.
+
+Use the calendar selector (next to Filters) to show or hide specific Google Calendars, such as your personal calendar versus a shared team calendar.
+
+### Keyboard shortcuts
+
+| Shortcut | Action |
+|---|---|
+| `⌘[` | Previous period |
+| `⌘]` | Next period |
+| `⌘⇧T` | Jump to today |
+| `⌘⇧M` | Switch to month view |
+| `⌘⇧W` | Switch to week view |
+
+---
+
+## Viewing calendar events on a contact profile
+
+When Orbis links a calendar event to a contact, the event appears in the **Interactions** section of that contact's profile. This lets you see your full meeting history with each person without switching to the Calendar view.
+
+Events are linked to contacts by matching attendee email addresses. If an attendee's email matches a contact in your Orbis workspace, the meeting is automatically associated with that contact.
+
+---
+
+## How meetings are tracked as interactions
+
+Each synced calendar event is recorded as an interaction on the profiles of all matched attendee contacts. The interaction captures:
+
+- Event title
+- Date and time
+- Attendees (linked to their Orbis contact profiles)
+- Meeting link (if a video call URL is present in the event)
+- Location
+
+This means your relationship timeline on each contact is automatically populated as you meet with people — no manual entry needed.
+
+<Tip>
+  If a meeting is starting in the next 15 minutes and has a video call link, Orbis shows a notification with a **Join** button so you can jump in without searching for the link.
+</Tip>
+
+---
+
+## Creating events from Orbis
+
+You can create new Google Calendar events directly from the Calendar view in Orbis.
+
+<Steps>
+  <Step title="Open the create dialog">
+    Click **New Event** in the top-right corner, or click a day in Month view, or drag a time range in Week view to pre-fill the start and end times.
+  </Step>
+  <Step title="Fill in the details">
+    Enter the event title, date, time, location, and description. Add attendees by email address — Orbis will match them to contacts and link the event to their profiles automatically.
+  </Step>
+  <Step title="Choose a calendar">
+    Select which Google Calendar the event should be saved to using the calendar dropdown.
+  </Step>
+  <Step title="Save the event">
+    Click **Save**. The event is created in Google Calendar and immediately appears in the Orbis Calendar view.
+  </Step>
+</Steps>
+
+You can also email guests directly from the event detail panel — click **Email guests** to open the compose window pre-filled with the attendees and event subject.
+
+---
+
+## Syncing manually
+
+Orbis syncs calendar events automatically in the background. To pull in the latest events immediately, click the **Sync** button in the top toolbar of the Calendar view.

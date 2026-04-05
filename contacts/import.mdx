@@ -1,0 +1,109 @@
+---
+title: "Import Contacts"
+description: "Bring your existing contacts into Orbis via CSV upload or LinkedIn export."
+---
+
+You can import contacts from any CSV file or directly from a LinkedIn data export. Imports are processed in the background, and Orbis automatically deduplicates against contacts you already have.
+
+## CSV import
+
+### Prepare your CSV
+
+Your CSV must include a column for **email address** — this is required for every contact row. All other columns are optional.
+
+Orbis recognizes the following standard fields:
+
+<CardGroup cols={2}>
+  <Card title="Core identity" icon="id-card">
+    Name, email, company, phone, job title
+  </Card>
+  <Card title="Location" icon="location-dot">
+    Location (free text), city, country, region
+  </Card>
+  <Card title="Professional" icon="briefcase">
+    Headline, summary/bio, skills, interests, industry, job role, job seniority level
+  </Card>
+  <Card title="Social & links" icon="link">
+    LinkedIn URL, website, Twitter/X, GitHub, Facebook, Instagram, YouTube, TikTok, Threads
+  </Card>
+  <Card title="Notes & tags" icon="tag">
+    Notes, tags (comma-separated), progress/stage
+  </Card>
+  <Card title="Personal" icon="person">
+    Gender, birth year, birthday
+  </Card>
+</CardGroup>
+
+Column names in your CSV don't need to match exactly — Orbis suggests mappings automatically based on common synonyms (for example, "Job Title", "Position", and "Role" all map to the title field).
+
+Any columns that don't match a standard field can be imported as **custom properties**.
+
+<Note>
+The import limit is 2,000 rows per file. Split larger files before uploading.
+</Note>
+
+### Run the import
+
+<Steps>
+  <Step title="Open the import modal">
+    From the Contacts page, click **Import** and select **Import from CSV**.
+  </Step>
+  <Step title="Upload your file">
+    Drop your CSV file onto the upload area or click to browse. Orbis parses the first few rows and shows a preview.
+  </Step>
+  <Step title="Set a tag name (optional)">
+    Enter a tag name to apply to all imported contacts. This makes it easy to filter and find them later. The file name is pre-filled as a suggestion.
+  </Step>
+  <Step title="Review column mapping">
+    Orbis auto-suggests how to map your CSV columns to contact fields. Review each mapping and adjust as needed. Columns in the **Custom Properties** section can be checked to import as custom fields.
+  </Step>
+  <Step title="Click Import">
+    Orbis processes the file and shows a summary when done: how many contacts were added, how many were merged with existing records, and how many rows failed.
+  </Step>
+</Steps>
+
+### Failed rows
+
+If any rows fail validation, a summary shows the error count. Click **Export failed rows** to download a CSV of just the rows that didn't import, so you can fix them and re-import.
+
+## LinkedIn CSV import
+
+LinkedIn lets you export your connections as a CSV file. This is useful for importing your existing LinkedIn network into Orbis.
+
+### Export from LinkedIn
+
+<Steps>
+  <Step title="Go to LinkedIn Settings">
+    On LinkedIn, navigate to **Settings & Privacy** → **Data Privacy** → **Get a copy of your data**.
+  </Step>
+  <Step title="Request your connections export">
+    Select **Connections** and click **Request archive**. LinkedIn sends you an email when the export is ready, which may take a few minutes.
+  </Step>
+  <Step title="Download the file">
+    Download the archive and locate `Connections.csv` inside the zip file.
+  </Step>
+</Steps>
+
+### Import to Orbis
+
+Upload `Connections.csv` using the standard CSV import flow. Orbis recognizes LinkedIn's column names — **First Name**, **Last Name**, **Email Address**, **Company**, **Position**, and **Connected On** — and maps them automatically.
+
+<Tip>
+LinkedIn connections exports often don't include email addresses (LinkedIn omits them for privacy). Contacts imported without an email are still created in Orbis, but enrichment works best when an email is present.
+</Tip>
+
+## Handling duplicates
+
+Orbis matches incoming contacts against existing records by email address. When a match is found:
+
+- The existing contact record is updated with any new information from the import
+- No duplicate record is created
+- The import summary counts this as a **merge**, not an **add**
+
+Contacts without an email, or whose email doesn't match any existing record, are created as new contacts.
+
+## What happens after import
+
+Once the import completes, Orbis begins **enrichment** on newly added contacts in the background. Enrichment looks up additional data — company information, job title, social profiles, and profile photos — so you don't have to fill them in manually.
+
+See [Contact Enrichment](/contacts/enrichment) for details on what enrichment does and how to trigger it manually.

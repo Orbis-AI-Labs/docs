@@ -1,0 +1,109 @@
+---
+title: "Contacts"
+description: "Manage your network of people in Orbis — from basic contact details to rich relationship intelligence."
+---
+
+A contact in Orbis represents a person in your network. Each contact record holds identifying information — name, email addresses, phone numbers, company, job title, location, and social profiles — as well as relationship data that is private to you or your team, such as tags, notes, and interaction history.
+
+## The contacts list
+
+The contacts list is your primary view for browsing, filtering, and bulk-managing contacts.
+
+### Searching and filtering
+
+Use the search bar at the top of the list to find contacts by name, email, company, or other text fields. For more precise filtering, open the filter builder to apply conditions across any column — for example, contacts tagged "investor" at companies in a specific industry, or contacts with a follow-up flag set.
+
+You can save a filtered view to the sidebar so you can return to it without rebuilding the filter each time.
+
+### Sorting
+
+Click any column header to sort ascending or descending. Useful columns to sort by include **Last Interaction** (to see who you haven't spoken to recently) and **Created** (to review newly added contacts).
+
+### Column customization
+
+Click the **Columns** button to show or hide any column in the table. Orbis tracks dozens of data points per contact — from standard fields like email and title to enriched data like LinkedIn headline, inferred salary range, and sentiment — so you can tailor the table to show only what matters to you.
+
+## Contact profile
+
+Click any contact's name to open their profile. The profile is organized into sections:
+
+<CardGroup cols={2}>
+  <Card title="Overview" icon="user">
+    Name, email, phone, company, title, location, and social links. Also shows enrichment status, source tags, and whether the contact is marked as a founder.
+  </Card>
+  <Card title="Interactions" icon="clock-rotate-left">
+    A chronological timeline of every interaction logged with this contact — emails, meetings, calls, and notes — pulled from connected integrations or added manually.
+  </Card>
+  <Card title="Notes" icon="note-sticky">
+    Rich-text notes linked to this contact. You can create new notes directly from the profile or see notes linked from the Notes section of the app.
+  </Card>
+  <Card title="Tasks" icon="list-check">
+    Open and completed tasks associated with this contact. Create tasks from here to set reminders or track follow-ups.
+  </Card>
+  <Card title="Companies" icon="building">
+    The companies this contact is associated with. Clicking a company takes you to its profile.
+  </Card>
+</CardGroup>
+
+### Professional details
+
+The profile also surfaces enriched professional data when available: LinkedIn headline and bio, years of experience, job role classification, industry, and inferred salary range.
+
+## Tags and custom fields
+
+### Tags
+
+Tags let you categorize and group contacts. You can apply multiple tags to a single contact. Tags created during a CSV import are automatically available in the filter sidebar as saved views.
+
+Your tags are private to you unless you are in an organization, in which case tags can be shared across the team.
+
+### Custom fields
+
+Custom fields let you capture any data that doesn't fit a standard field. You can add custom fields to individual contact records and import them from a CSV. Common uses include lead source, deal stage, or any custom scoring you track.
+
+## Interaction types
+
+Orbis tracks the following interaction types in a contact's timeline:
+
+| Type | Source |
+|------|--------|
+| **Email** | Synced from Gmail when Google is connected |
+| **Meeting** | Synced from Google Calendar |
+| **Call** | Logged manually or via integrations |
+| **Note** | Notes you create and link to the contact |
+
+The **Last Interaction** field on each contact always reflects the most recent interaction across all types.
+
+## Sentiment tracking and relationship strength
+
+When Gmail is connected, Orbis analyzes your email threads with each contact to produce relationship intelligence:
+
+- **Overall sentiment** — whether your recent communications have been positive, neutral, negative, or mixed
+- **Sentiment trend** — whether the relationship is improving, stable, or declining
+- **Relationship health** — a status of strong, stable, at-risk, or new
+- **Relationship score** — a 0–100 score reflecting overall relationship strength
+- **Key topics** — the subjects that come up most in your conversations
+- **Communication style** — a summary of how this person typically communicates
+- **Urgency** — whether any recent messages carry high, medium, or low urgency signals
+- **Needs follow-up** — a flag raised when Orbis detects an unanswered message or open thread
+
+These signals are updated automatically as new emails are synced.
+
+## Contact deduplication
+
+When importing contacts or adding them manually, Orbis checks for duplicates by matching email addresses. If a contact with the same email already exists, the import merges the new data into the existing record rather than creating a duplicate. The import summary shows how many contacts were **added** versus **merged**.
+
+<Note>
+Deduplication matches on email. Two contacts with different emails but the same name will not be automatically merged.
+</Note>
+
+## Reminders and follow-up
+
+You can set reminders on any contact in two ways:
+
+- **Tasks** — create a task linked to a contact with a due date and priority. Tasks appear in the contact's profile and in the Tasks view.
+- **Follow-up flag** — Orbis automatically sets a follow-up flag on contacts when it detects an unanswered message in Gmail. You can also set this flag manually.
+
+<Tip>
+Sort by **Follow-up** in the contacts list to quickly see everyone who needs attention.
+</Tip>

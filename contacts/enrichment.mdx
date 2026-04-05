@@ -1,0 +1,78 @@
+---
+title: "Contact Enrichment"
+description: "Orbis automatically fills in missing contact details using AI and third-party data sources."
+---
+
+Contact enrichment fills in information you didn't supply manually — things like a person's current job title, company, social profiles, profile photo, and professional background. Orbis enriches contacts automatically after import and on demand.
+
+## What enrichment fills in
+
+When enrichment runs on a contact, Orbis attempts to populate the following fields:
+
+<CardGroup cols={2}>
+  <Card title="Professional details" icon="briefcase">
+    Job title, headline, professional summary, industry, job role, seniority level, and inferred years of experience
+  </Card>
+  <Card title="Company" icon="building">
+    Current employer, company domain, and company website — and triggers company enrichment to fetch a logo if not already present
+  </Card>
+  <Card title="Social profiles" icon="share-nodes">
+    LinkedIn URL, Twitter/X, GitHub, and other public social profiles
+  </Card>
+  <Card title="Profile photo" icon="image">
+    A profile photo sourced from public data
+  </Card>
+  <Card title="Location" icon="location-dot">
+    City, region, country, and metro area
+  </Card>
+  <Card title="LinkedIn intelligence" icon="linkedin">
+    LinkedIn headline, about section, and follower count when a LinkedIn profile is matched
+  </Card>
+</CardGroup>
+
+Enrichment only writes to fields that are currently empty. It won't overwrite data you've already entered or data from a previous enrichment run.
+
+## How enrichment is triggered
+
+### On import
+
+Enrichment starts automatically after a CSV import completes. Newly added contacts are queued for enrichment in the background. You don't need to do anything — the fields appear on the contact profile as the data is fetched.
+
+### On demand
+
+You can manually trigger enrichment on any individual contact from their profile page. Look for the **Enrich** option in the contact's action menu. This is useful if you've added a contact manually or if you want to refresh enrichment data for a specific person.
+
+## Data sources
+
+Orbis uses the following data sources during enrichment:
+
+| Source | What it provides |
+|--------|-----------------|
+| **PeopleDataLabs (PDL)** | Professional background: job title, company, location, skills, social profiles, inferred salary, years of experience |
+| **Google Search** | LinkedIn profile discovery when PDL doesn't return a direct match |
+| **Brandfetch** | Company logos and brand colors for associated companies |
+
+<Info>
+Enrichment runs automatically within your plan's included quota. If enrichment stops completing on new contacts, you may have reached your plan's enrichment limit — contact support to learn more.
+</Info>
+
+## Enrichment confidence levels
+
+Not every contact enrichment produces the same quality result. Orbis tracks a **match confidence** level for LinkedIn enrichment:
+
+| Level | Meaning |
+|-------|---------|
+| **High** | The LinkedIn profile was matched directly to the contact's email or unique identifiers |
+| **Medium** | The profile was matched by name and company, which may have false positives |
+| **Low** | A possible match was found but the signals were weak |
+| **None** | No match was found |
+
+The confidence level is visible in the contact's profile and can be filtered in the contacts list via the **Match Confidence** column. This helps you identify contacts where the enriched LinkedIn data should be reviewed before you act on it.
+
+<Tip>
+Filter the contacts list by **Match Confidence = low** or **none** to find contacts that would benefit from manual profile review or a manual enrichment trigger.
+</Tip>
+
+## Founder detection
+
+As part of enrichment, Orbis checks whether a contact is likely a founder based on their LinkedIn profile and job title signals. A **Founder** badge appears on the contact profile when this is detected, along with the confidence level of that detection.

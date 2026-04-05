@@ -1,0 +1,177 @@
+---
+title: "Account setup"
+description: "Learn how to create your Orbis account, complete onboarding, and configure your profile, notifications, and appearance settings."
+---
+
+## Creating an account
+
+Orbis uses Google OAuth for authentication — there is no separate username or password to manage.
+
+To create an account:
+
+1. Go to [app.meetorbis.com](https://app.meetorbis.com).
+2. Click **Sign in**.
+3. Choose the Google account you want to use with Orbis.
+4. Review and accept the requested permissions, then click **Continue**.
+
+Orbis will create your account and redirect you to the onboarding wizard.
+
+<Note>
+  Orbis' use of Google account data follows the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements. You can review connected permissions at any time in your Google Account settings.
+</Note>
+
+If you already have an account, clicking **Sign in** with the same Google account signs you back in automatically.
+
+---
+
+## Completing the onboarding wizard
+
+When you sign in for the first time, Orbis walks you through a four-step onboarding flow to get your workspace ready.
+
+<Steps>
+  <Step title="Sync your Google data">
+    Orbis begins syncing your Google Contacts, Gmail, and Google Calendar immediately after you authenticate. The onboarding screen shows the sync status for each service. You don't need to wait — syncing runs in the background and you can move on to the next step.
+
+    | Service | What it syncs |
+    |---|---|
+    | Google Contacts | People from your address book |
+    | Gmail | Email threads linked to contacts |
+    | Google Calendar | Meetings and events linked to attendees |
+  </Step>
+  <Step title="Complete your profile">
+    Fill in your company's website URL, your role, and a short description of your company. Orbis uses this information to personalize AI-generated suggestions and email drafts.
+
+    All fields are optional. You can skip this step and update your profile later from **Settings → Profile**.
+  </Step>
+  <Step title="Connect your LinkedIn network">
+    Request a data export from LinkedIn so you can import your connections, messages, and profile history. Click **Open LinkedIn data export** to go directly to LinkedIn's export settings and request the "Larger data archive" ZIP file.
+
+    LinkedIn exports can take up to 24 hours to arrive. Once you have the file, you can upload it directly in the onboarding wizard or later from **Settings → Tools → LinkedIn Archive**.
+  </Step>
+  <Step title="Import existing contacts">
+    Upload a CSV file of contacts you already have. Orbis maps your columns to contact fields during import and handles deduplication automatically.
+
+    You can skip this step and import later from **Contacts → Actions → Import Contacts**.
+  </Step>
+</Steps>
+
+When you finish the last step, click **Finish setup** and Orbis takes you to your Contacts page.
+
+---
+
+## Profile settings
+
+Your profile controls the personal information and company context Orbis uses across the product.
+
+To access profile settings, go to **Settings → Profile** (or navigate to [app.meetorbis.com/settings](https://app.meetorbis.com/settings)).
+
+### Personal information
+
+| Field | Description |
+|---|---|
+| First name | Your display name in Orbis |
+| Last name | Optional |
+| Email | Read-only. Your primary email is managed through your Google Account. |
+| Personal email | An optional secondary email (e.g. a Gmail address) used for contact enrichment, useful if your primary email is a work address. |
+| Language | Your preferred display language |
+| Bio | A short description of yourself |
+| URLs | Links to your website, blog, or social profiles |
+
+### Company information
+
+| Field | Description |
+|---|---|
+| Company domain | Your company's website URL (e.g. `https://example.com`) |
+| Your role | Your title at the company — choose from the provided list |
+| Company description | A short description of what your company does, used to improve AI suggestions |
+
+### Saving changes
+
+Click **Update profile** to save your changes.
+
+### Security
+
+Orbis accounts are secured through Google. To manage password, two-factor authentication, or other security settings, visit [myaccount.google.com/security](https://myaccount.google.com/security) directly.
+
+---
+
+## Notification preferences
+
+To configure notifications, go to **Settings → Notifications**.
+
+### In-app notifications
+
+Choose which activity triggers notifications inside Orbis:
+
+- **All new messages** — notify on all new activity
+- **Direct messages and mentions** — only notify when you're directly involved
+- **Nothing** — disable in-app notifications
+
+### Email notifications
+
+| Notification type | Default | Description |
+|---|---|---|
+| Communication emails | Off | Updates about your account activity |
+| Marketing emails | Off | News about new features and product updates |
+| Social emails | On | Notifications about activity in your network |
+| Security emails | On (always on) | Alerts about account security events |
+
+Click **Update notifications** to save your preferences.
+
+---
+
+## Appearance settings
+
+Orbis supports light mode, dark mode, and system-aware theming.
+
+To toggle between light and dark mode, click the theme switch in the top navigation bar. The switch icon shows a sun (light) or moon (dark) depending on the current setting.
+
+By default, Orbis follows your system appearance preference. If you set a manual theme, Orbis remembers your preference across sessions.
+
+### RTL support
+
+Orbis supports right-to-left (RTL) layouts for languages that require it. RTL mode activates automatically based on your language setting.
+
+---
+
+## Connected accounts
+
+You can connect up to five Google accounts to Orbis. Each connected account syncs its own Gmail, Google Calendar, and Google Contacts data.
+
+To manage connected accounts, go to **Settings → Connected Accounts**.
+
+From this page you can:
+
+- **Add an account** — click **Add Account** and complete the Google OAuth flow
+- **Set a primary account** — the primary account is used as the default for sending and syncing
+- **Disconnect an account** — pauses syncing; your existing data is preserved and available if you reconnect
+- **Remove an account** — permanently deletes the account and all associated email threads, drafts, and sync data from Orbis
+
+<Warning>
+  Removing a connected account permanently deletes all synced data for that account. This cannot be undone.
+</Warning>
+
+---
+
+## Deleting your account
+
+Deleting your Orbis account is permanent and cannot be reversed.
+
+To delete your account:
+
+1. Go to **Settings → Profile**.
+2. Scroll to the **Danger Zone** section at the bottom of the page.
+3. Click **Delete Account**.
+4. Review what will be deleted, then type `DELETE` to confirm.
+5. Click **Delete Account** to proceed.
+
+Deleting your account removes:
+
+- All connected Google accounts
+- Synced emails and calendar events
+- All contacts, notes, and interactions
+- All other personal data associated with your account
+
+<Warning>
+  Account deletion is irreversible. If you're unsure, consider disconnecting your Google accounts first to pause syncing without losing your data.
+</Warning>

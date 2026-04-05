@@ -1,0 +1,136 @@
+---
+title: "Google Integration"
+description: "Connect your Google account to sync Gmail, Google Calendar, and Google Contacts with Orbis."
+---
+
+## Overview
+
+The Google integration connects Orbis to three Google services at once:
+
+<CardGroup cols={3}>
+  <Card title="Gmail" icon="envelope">
+    Your email threads are synced to Orbis and linked to contacts. View conversation history, compose emails, and let AI extract insights from your inbox.
+  </Card>
+  <Card title="Google Calendar" icon="calendar">
+    Calendar events are pulled into Orbis and associated with attendee contacts. Track meetings as interactions and create new events without leaving Orbis.
+  </Card>
+  <Card title="Google Contacts" icon="address-book">
+    Your Google Contacts are imported and matched against existing Orbis contacts to keep profile data up to date.
+  </Card>
+</CardGroup>
+
+You can connect up to **5 Google accounts** per Orbis workspace.
+
+---
+
+## Connecting your Google account
+
+<Steps>
+  <Step title="Open Connected Accounts">
+    In Orbis, go to **Settings → Connected Accounts**.
+  </Step>
+  <Step title="Start the connection">
+    Click **Add Account**. Orbis redirects you to Google's sign-in page.
+  </Step>
+  <Step title="Sign in and grant permissions">
+    Sign in with the Google account you want to connect, then review and accept the requested permissions.
+  </Step>
+  <Step title="Return to Orbis">
+    Google redirects you back to Orbis. Your account appears in the **Connected Accounts** list with a **Primary** badge if it's your first account.
+  </Step>
+</Steps>
+
+<Note>
+  If you connect multiple accounts, you can designate any of them as your primary account using the **Set Primary** button. The primary account is used by default when composing new emails.
+</Note>
+
+---
+
+## Permissions requested
+
+When you authorize Orbis, Google asks you to grant the following permissions:
+
+| Permission | Why Orbis needs it |
+|---|---|
+| View your email address and basic profile | Identifies your account and displays your name and avatar in Orbis |
+| Read, compose, and manage your Gmail messages | Syncs email threads, enables composing and replying, and manages labels (archive, trash) |
+| Read your contacts | Imports contacts from Google People and matches them to Orbis records |
+| Read your other contacts (frequently contacted) | Captures contacts that appear in Gmail but aren't in your address book |
+| View and manage calendar events | Syncs calendar events and lets you create or edit events from Orbis |
+
+<Info>
+  Orbis requests read and write access to Gmail so it can archive threads, move messages to trash, and update labels on your behalf. Orbis does not permanently delete emails — it only moves them to trash.
+</Info>
+
+---
+
+## What data syncs
+
+### Emails ↔ contacts
+
+After connecting, Orbis imports up to **6 months** of your Gmail history and continues syncing new threads automatically. Each thread is linked to the contact whose email address matches the participants. You can view these threads directly on a contact's profile.
+
+### Calendar events ↔ contacts
+
+Google Calendar events are synced and linked to attendee contacts in Orbis. Meetings appear on contact profiles as interactions, and the Calendar view in Orbis shows all your events in one place.
+
+### Google Contacts
+
+Orbis imports your Google Contacts and attempts to match each one to an existing Orbis contact by email. Matching contacts are enriched with any missing fields (name, company, job title, phone). New contacts are created for entries with no match.
+
+---
+
+## Disconnecting Google
+
+<Steps>
+  <Step title="Open Connected Accounts">
+    Go to **Settings → Connected Accounts**.
+  </Step>
+  <Step title="Open account options">
+    Click the **⋮** (more options) menu on the account you want to disconnect.
+  </Step>
+  <Step title="Choose an option">
+    - **Disconnect** — Stops syncing and revokes Orbis's access. Your existing email threads and data are preserved; you can reconnect later to resume syncing.
+    - **Remove Account & All Data** — Permanently deletes the account connection and all associated threads, drafts, and data. This cannot be undone.
+  </Step>
+</Steps>
+
+<Warning>
+  **Remove Account & All Data** is irreversible. All email threads, drafts, and synced data for that account are permanently deleted from Orbis.
+</Warning>
+
+<Note>
+  You cannot disconnect your only active Google account. To remove it, first add another account or delete your workspace data.
+</Note>
+
+---
+
+## Troubleshooting
+
+### Re-authorizing your account
+
+If your sync stops working or Orbis shows a **Limited Access** badge next to your account, your Google token may have expired or permissions may have been revoked.
+
+<Steps>
+  <Step title="Open Connected Accounts">
+    Go to **Settings → Connected Accounts**.
+  </Step>
+  <Step title="Reconnect">
+    Click **Reconnect** next to the affected account. You are taken through the Google authorization flow again.
+  </Step>
+  <Step title="Grant all permissions">
+    Make sure to accept all requested permissions on the Google consent screen. Declining any permission results in **Limited Access** mode, where some features (such as Gmail sync) will not work.
+  </Step>
+</Steps>
+
+### Sync errors
+
+If the **Sync Status** badge shows `error` on an account:
+
+1. Try re-authorizing the account (see above).
+2. Check that the Google account is still active and accessible.
+3. If the error persists after reconnecting, contact support.
+
+### Sync not showing new emails
+
+Gmail sync runs automatically, but you can trigger an immediate sync from the **Inbox** page using the **Sync** button in the top toolbar. Allow a few seconds for new threads to appear.

@@ -1,0 +1,137 @@
+---
+title: "AI Agents"
+description: "AI agents are automated workers you configure to run tasks in the background — analyzing your CRM data, generating insights, and taking actions on your behalf on a schedule."
+---
+
+AI agents are workers you create and configure inside Orbis. Each agent runs on a schedule, executing tasks you assign to it — like analyzing relationships, enriching contact data, or drafting follow-up suggestions. Agents work in the background so you don't have to.
+
+## What agents do
+
+Agents can handle a range of tasks inside your CRM:
+
+<CardGroup cols={2}>
+  <Card title="Relationship intelligence" icon="chart-network">
+    Identify contacts you haven't reached out to recently, flag relationships at risk, or surface people worth reconnecting with
+  </Card>
+  <Card title="Contact enrichment" icon="user-plus">
+    Research contacts and fill in missing context, job titles, or company information
+  </Card>
+  <Card title="Follow-up suggestions" icon="reply">
+    Draft follow-up messages or summaries after meetings and calls
+  </Card>
+  <Card title="Board task execution" icon="columns-3">
+    Work through tasks on a kanban board — researching, summarizing, or generating content for each card
+  </Card>
+</CardGroup>
+
+## Creating an agent
+
+<Steps>
+  <Step title="Go to Agents">
+    In the left sidebar, click **Agents**. If you have no agents yet, you'll see an empty state with a **Create Agent** button.
+  </Step>
+  <Step title="Click New Agent">
+    Click the **New Agent** button in the top-right corner.
+  </Step>
+  <Step title="Name your agent">
+    Give the agent a descriptive name — for example, "Relationship Monitor" or "Research Agent". You can also choose an emoji to identify it visually.
+  </Step>
+  <Step title="Set a role (optional)">
+    Add a role description like "Founder" or "Social Media Manager" to give the agent context about how it should respond.
+  </Step>
+  <Step title="Assign a board (optional)">
+    If you want the agent to work through tasks on a specific kanban board, select that board here. An agent assigned to a board can be designated as the **Board Lead**, giving it primary responsibility for that board's tasks.
+  </Step>
+  <Step title="Configure the heartbeat interval">
+    The heartbeat interval controls how often the agent checks for new work. Options range from every 5 minutes to every 6 hours. Choose based on how time-sensitive the agent's tasks are.
+  </Step>
+  <Step title="Customize personality and behavior (optional)">
+    Use the **Soul Template** field to define the agent's personality and approach in plain text — for example, "You are a concise, direct assistant focused on relationship building. Always prioritize warm introductions over cold outreach."
+
+    You can also set a **Communication Style** (e.g., "direct, concise, practical") to tune how the agent writes.
+  </Step>
+  <Step title="Create the agent">
+    Click **Create Agent**. The agent starts in **Provisioning** status and becomes **Active** once it's ready.
+  </Step>
+</Steps>
+
+## Agent statuses
+
+| Status | What it means |
+|---|---|
+| **Active** | The agent is running and will process tasks on its heartbeat schedule |
+| **Provisioning** | The agent was just created and is being set up |
+| **Inactive** | The agent is paused — it won't process tasks until reactivated |
+| **Error** | Something went wrong; check the agent's health tab for details |
+
+## Viewing and managing agents
+
+From the **Agents** page, each agent card shows its name, status, assigned board, and when it was last active.
+
+Click an agent card to open its detail page, which has four tabs:
+
+- **Overview** — current status, assigned board, and soul template preview
+- **Health** — connection status, last seen time, and last health check
+- **Skills** — capabilities assigned to this agent
+- **Configuration** — edit name, board assignment, soul template, and identity profile
+
+To activate or deactivate an agent, click the **Activate** or **Deactivate** button in the header, or use the dropdown menu on the agent card.
+
+## Agent skills
+
+Skills extend what an agent can do. Each skill gives the agent access to a specific capability — like reading emails, searching contacts, or calling an external API.
+
+To add a skill to an agent:
+
+<Steps>
+  <Step title="Open the agent">
+    Click the agent you want to configure.
+  </Step>
+  <Step title="Go to the Skills tab">
+    Click the **Skills** tab in the agent detail page.
+  </Step>
+  <Step title="Add a skill">
+    Click **Add Skill** and search or browse the skill catalog. Click a skill to assign it to the agent.
+  </Step>
+</Steps>
+
+To remove a skill, click the **×** button next to the skill in the agent's Skills tab.
+
+<Note>
+  Skills are sourced from the skill catalog, which your organization can extend. Skills are organized by category — for example, search skills, communication skills, or data skills.
+</Note>
+
+## How agents interact with your data
+
+By default, agents **read** your CRM data to generate insights and suggestions. They can:
+
+- Search and analyze your contacts, interactions, notes, and threads
+- Generate summaries and recommendations
+- Create notes and draft content
+
+When an agent is assigned to a board, it can also **take action** on board tasks: picking up a task, executing it, and marking it complete.
+
+<Warning>
+  When an agent executes a board task that involves creating or modifying records — like creating a contact or saving a note — those changes are written to your workspace. Review completed tasks in the board view to verify the results.
+</Warning>
+
+Agents do not send emails, make calendar changes, or modify your contacts directly unless explicitly configured to do so via skills that enable those actions.
+
+## Configuring agent behavior
+
+You can adjust an agent's behavior at any time from the **Configuration** tab of the agent detail page:
+
+| Setting | What it controls |
+|---|---|
+| **Name** | Display name for the agent |
+| **Board** | Which kanban board the agent works on |
+| **Board Lead** | Whether this agent is the primary lead for its board |
+| **Soul Template** | Free-text description of the agent's personality and approach |
+| **Identity Profile** | Role, emoji, and communication style settings |
+| **Heartbeat Interval** | How often the agent checks for and processes new tasks |
+
+To edit, click **Edit** in the agent's header, make your changes, and click **Save**.
+
+<Tip>
+  The Soul Template is the most powerful way to shape agent behavior. Be specific: describe the agent's focus area, preferred tone, and any constraints — for example, "Focus only on contacts in the climate tech sector. Always suggest a personal connection angle for follow-ups."
+</Tip>

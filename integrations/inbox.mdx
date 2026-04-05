@@ -1,0 +1,157 @@
+---
+title: "Inbox & Gmail"
+description: "Sync Gmail with Orbis to track email interactions, view threads on contact profiles, and compose emails with AI assistance."
+---
+
+## Overview
+
+Orbis reads your Gmail threads and links each conversation to the contacts in your workspace. Your inbox becomes a CRM layer — every email exchange appears on the relevant contact's profile, and AI surfaces insights like urgency signals and follow-up reminders automatically.
+
+Gmail sync is part of the [Google Integration](/integrations/google). You must connect a Google account before your inbox appears in Orbis.
+
+---
+
+## How Gmail sync works
+
+When you connect a Google account, Orbis imports up to **6 months** of Gmail history and continues syncing new threads in the background. For each thread:
+
+1. Orbis identifies the participants by their email addresses.
+2. It matches each participant against your Orbis contacts.
+3. The thread is linked to all matched contacts.
+4. AI processes the thread to extract signals such as urgency, follow-up status, and sentiment.
+
+New emails arrive in the Orbis Inbox automatically — typically within a few minutes of them landing in Gmail.
+
+---
+
+## The Inbox view
+
+Navigate to **Inbox** in the left sidebar to open your email workspace.
+
+The Inbox has two view modes, toggled from the sidebar:
+
+<CardGroup cols={2}>
+  <Card title="Emails view" icon="inbox">
+    A classic three-panel layout: folder list on the left, thread list in the middle, and the selected thread on the right. Mirrors the feel of a standard email client.
+  </Card>
+  <Card title="Contacts view" icon="users">
+    Groups email threads by contact. Select a contact on the left to see all their threads in the right panel — useful for reviewing your full history with someone before a meeting.
+  </Card>
+</CardGroup>
+
+### Folders
+
+The left sidebar lists standard Gmail folders:
+
+- **Inbox** — Your primary inbox
+- **Sent** — Emails you've sent
+- **Drafts** — Saved draft emails
+- **Starred** — Starred threads
+- **Archive** — Archived threads
+- **Trash** — Deleted threads
+- **AI Drafts** — AI-generated reply drafts waiting for your review
+
+### Filtering and search
+
+Use the toolbar above the thread list to filter by:
+
+- **Read / Unread** — Show all threads or unread only
+- **Urgency** — Threads flagged by AI as needing prompt attention
+- **Follow-up** — Threads where you owe a reply
+- **Labels** — Gmail labels applied to threads
+- **Account** — If you have multiple Google accounts, filter by a specific account
+
+Type in the search bar to search thread subjects, senders, and snippets.
+
+---
+
+## Viewing email threads on a contact profile
+
+Open any contact in Orbis and scroll to the **Emails** section on their profile. All email threads linked to that contact appear here, ordered by most recent activity.
+
+Click any thread to expand and read the full conversation without leaving the contact profile. You can reply directly from this view.
+
+---
+
+## Composing emails from Orbis
+
+### New message
+
+Click **New Message** in the top-right corner of the Inbox to open the compose window. Fill in the recipient, subject, and body, then click **Send**.
+
+### Replying and forwarding
+
+Open a thread and click **Reply** or **Forward** at the bottom of the conversation. The compose window opens pre-filled with the thread context.
+
+### AI-generated drafts
+
+For any thread, you can ask Orbis AI to generate a reply draft:
+
+<Steps>
+  <Step title="Open the thread">
+    Select a thread in the Inbox.
+  </Step>
+  <Step title="Generate a draft">
+    Click **Generate reply** (available in the thread toolbar or the row action menu). Orbis AI reads the conversation and writes a contextual draft reply.
+  </Step>
+  <Step title="Review and edit">
+    The compose window opens with the generated draft. Edit as needed before sending.
+  </Step>
+  <Step title="Send">
+    Click **Send** when you're ready. The reply is sent via Gmail and the thread is updated immediately.
+  </Step>
+</Steps>
+
+<Tip>
+  AI-generated drafts are also saved to **AI Drafts** in the sidebar, where you can review, edit, and send them in bulk.
+</Tip>
+
+---
+
+## Privacy: what Orbis reads
+
+<Info>
+  Orbis reads email thread content to link threads to contacts and to power AI features like urgency detection and draft generation. Orbis does not read or store emails from senders who are not in your contact list, and it does not share your email content with third parties.
+</Info>
+
+Specifically, Orbis:
+
+- **Reads** thread subjects, message bodies, sender and recipient addresses, and timestamps.
+- **Does not** permanently delete emails — archive and trash operations are reversible.
+- **Does not** access emails in folders you haven't granted access to during the Google authorization flow.
+
+If you disconnect your Google account, your existing synced threads remain in Orbis. To remove them entirely, use **Remove Account & All Data** from **Settings → Connected Accounts**.
+
+---
+
+## Controlling sync
+
+### Manual sync
+
+To pull in the latest emails immediately, click the **Sync** button (refresh icon) in the Inbox toolbar. Syncing typically completes within a few seconds for small accounts and up to a minute for accounts with many threads.
+
+### Multiple accounts
+
+If you have multiple Google accounts connected, Orbis syncs and displays threads from all of them. Use the **Account** filter in the Inbox toolbar to focus on a single account's threads at a time.
+
+### Sync frequency
+
+Background sync runs automatically. There is no manual setting to adjust sync frequency — Orbis fetches new emails continuously in the background while you're using the app.
+
+---
+
+## Troubleshooting
+
+### No emails showing in Inbox
+
+1. Check that your Google account is connected: go to **Settings → Connected Accounts** and verify the account status is not **Disconnected**.
+2. Click **Sync** in the Inbox toolbar to trigger a manual sync.
+3. If the account shows a **Limited Access** badge, your Gmail permissions may have been revoked. Re-authorize the account from **Settings → Connected Accounts → Reconnect**.
+
+### Emails not linked to the right contact
+
+Orbis links threads based on email address matches. If a contact's email address in Orbis doesn't match the address used in the email, the thread won't be linked. Update the contact's email address to fix this — the thread will be linked on the next sync.
+
+### "Google token expired" error
+
+If you see a token expiry error when sending or syncing, go to **Settings → Connected Accounts** and click **Reconnect** on the affected account to re-authorize.

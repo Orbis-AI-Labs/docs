@@ -1,0 +1,126 @@
+---
+title: "Deep Search"
+description: "Ask questions about your contact network in plain English. Deep Search finds contacts, interactions, notes, email threads, and companies using semantic AI — not just name or email matching."
+---
+
+Deep Search lets you find anyone or anything in your network by describing what you're looking for in plain English. Instead of typing exact names or email addresses, you can ask questions the same way you'd ask a colleague.
+
+<Note>
+  Deep Search searches across your contacts, interactions, notes, email threads, and companies simultaneously. Results are ranked by a combination of semantic relevance and how recently you've interacted with that person.
+</Note>
+
+## Regular search vs. Deep Search
+
+Orbis has two ways to search your data:
+
+| | Regular search | Deep Search |
+|---|---|---|
+| **How it works** | Matches exact names, emails, and company names | Understands the meaning of your query |
+| **Good for** | Finding a specific person you can name | Finding people based on context or relationship |
+| **Example** | "Sarah Chen" | "investors I haven't spoken to in a while" |
+
+Regular search is available in the command palette (press `⌘K` or `Ctrl+K`). Deep Search is accessed through the search bar in the sidebar or via the **Deep Search** section.
+
+## How to use Deep Search
+
+<Steps>
+  <Step title="Open Deep Search">
+    Click the **Deep Search** icon in the left sidebar, or use the search bar at the top of the page.
+  </Step>
+  <Step title="Type your query">
+    Enter a natural language question or description. You don't need special syntax — write it the way you'd say it out loud.
+  </Step>
+  <Step title="Review results">
+    Results appear across tabs: contacts, interactions, notes, threads, and companies. Each result shows a relevance score and a snippet of why it matched.
+  </Step>
+  <Step title="Continue the conversation">
+    You can follow up with additional questions in the same chat. Deep Search remembers the context of your previous messages in the conversation.
+  </Step>
+</Steps>
+
+## Example queries
+
+These are the kinds of queries Deep Search handles well:
+
+<CardGroup cols={2}>
+  <Card title="Relationship timing">
+    "investors I haven't talked to in 3 months"
+  </Card>
+  <Card title="Location and industry">
+    "contacts who work in fintech in New York"
+  </Card>
+  <Card title="Meeting context">
+    "people I met at conferences"
+  </Card>
+  <Card title="Follow-up needs">
+    "who do I need to follow up with this week"
+  </Card>
+  <Card title="Role or seniority">
+    "CTOs and VPs of Engineering in my network"
+  </Card>
+  <Card title="Company type">
+    "founders at Series A startups"
+  </Card>
+</CardGroup>
+
+More examples:
+
+- "emails about fundraising from last quarter"
+- "contacts at companies that do enterprise SaaS"
+- "people I emailed last week but haven't responded to"
+- "notes I wrote after calls with investors"
+- "anyone who works in climate tech or clean energy"
+
+## How results are ranked
+
+Deep Search ranks results using two signals:
+
+1. **Semantic similarity** — how closely the contact's profile, notes, and interaction history match the meaning of your query
+2. **Interaction recency** — contacts you've communicated with more recently are weighted higher
+
+This means a contact who perfectly matches your query but whom you haven't spoken with in two years may rank below someone with a slightly weaker match but a recent email exchange.
+
+## Search modes
+
+When you submit a query, Deep Search automatically detects what you're looking for:
+
+- **Searching your network** — if your query uses relationship language ("talked to", "emailed", "follow up"), Deep Search looks through your existing contacts and interactions
+- **Discovering new people** — if your query uses discovery language ("find investors in", "who are the top VPs at"), Deep Search can also surface people outside your existing contacts
+
+If your intent is unclear, Deep Search may ask a clarifying question before running the search.
+
+## AI chat interface
+
+Deep Search includes a full conversational interface. You can ask follow-up questions, refine results, and even take actions:
+
+**Finding and saving information:**
+- "Search for Stripe and create a note about what they do"
+- "Find contacts at OpenAI and show me my last interaction with each of them"
+
+**Creating records:**
+- "Create a contact for Jane Smith, VP Engineering at Acme Corp, jane@acme.com"
+- "Save a note summarizing my call with the Sequoia team"
+
+**Multi-step queries:**
+- "Who are the investors in my network that focus on B2B SaaS? Show me my interaction history with each one."
+
+Each conversation is saved automatically. You can return to previous conversations from the **Deep Search** sidebar to continue where you left off.
+
+<Tip>
+  Deep Search keeps up to 8 messages of conversation context. For complex research sessions, starting a new conversation when switching topics helps keep results focused.
+</Tip>
+
+## Attaching files
+
+You can attach files to your Deep Search messages. The AI reads the content and incorporates it into its response — useful for pasting in a meeting transcript, pitch deck, or CSV and asking questions about it.
+
+## Deep Research mode
+
+For complex, multi-step analysis, you can enable **Deep Research** mode. This uses a more powerful reasoning model that can spend more time analyzing your query before responding. It's slower but better for questions like:
+
+- "Summarize the state of my relationships with climate tech investors and suggest who I should prioritize reconnecting with"
+- "Analyze all my interactions with the Andreessen Horowitz team over the last year"
+
+<Warning>
+  Deep Research mode counts against a separate daily usage limit. You'll see a notification if you reach the limit for the day.
+</Warning>

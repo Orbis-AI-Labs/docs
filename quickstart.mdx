@@ -1,0 +1,94 @@
+---
+title: "Quick start"
+description: "Get up and running with Orbis in a few minutes. This guide walks you through creating your account, importing contacts, and connecting your Google account."
+---
+
+This guide takes you from a blank workspace to a working Orbis setup. The whole process takes around 10 minutes.
+
+## Set up your workspace
+
+<Steps>
+  <Step title="Create your account">
+    Go to [app.meetorbis.com](https://app.meetorbis.com) and click **Sign in**. Orbis uses Google OAuth, so you'll sign in with your Google account — no separate password to create.
+
+    <Note>
+      By signing in with Google, you authorize Orbis to access your Gmail and Google Calendar. You can review and adjust these permissions at any time in **Settings → Connected Accounts**.
+    </Note>
+  </Step>
+
+  <Step title="Complete the onboarding wizard">
+    After signing in for the first time, Orbis walks you through a four-step onboarding flow.
+
+    **Step 1 — Sync your Google data**
+
+    Orbis starts syncing your Google Contacts, Gmail, and Google Calendar automatically as soon as you authenticate. You'll see the status of each sync item on screen. You can continue to the next step while syncing runs in the background.
+
+    **Step 2 — Complete your profile**
+
+    Enter your company's website, your role, and a short description of what your company does. Orbis uses this information to generate more relevant AI suggestions and email drafts. All fields are optional — you can fill them in later from **Settings → Profile**.
+
+    **Step 3 — Connect your LinkedIn network**
+
+    Request an export of your LinkedIn data so you can import your connections, messages, and profile history. Click **Open LinkedIn data export**, request the "Larger data archive" ZIP, and upload it when it arrives (this can take up to 24 hours). You can skip this step and upload later from **Settings → Tools**.
+
+    **Step 4 — Import existing contacts**
+
+    Upload a CSV file of contacts you already have — from a spreadsheet, another CRM, or any export. Orbis maps your columns to contact fields during import. You can also skip this and import later from **Contacts → Import Contacts**.
+
+  </Step>
+
+  <Step title="Add your first contacts">
+    Once onboarding is complete, you'll land on the Contacts page. There are three ways to add contacts:
+
+    **Manual entry** — Click **New Contact** and fill in the details directly.
+
+    **CSV import** — Click **Actions → Import Contacts** to upload a spreadsheet. Orbis walks you through column mapping and handles deduplication automatically.
+
+    **From Google sync** — If you connected Google during onboarding, contacts from your Google Contacts and Gmail interactions will appear automatically as the sync completes.
+
+    <Tip>
+      If you have a LinkedIn archive ready, upload it from **Settings → Tools → LinkedIn Archive**. This is one of the fastest ways to seed your network with rich profile data.
+    </Tip>
+  </Step>
+
+  <Step title="Connect your Google account">
+    If you skipped Google sync during onboarding, or want to connect an additional account, go to **Settings → Connected Accounts** and click **Add Account**. You can connect up to five Google accounts.
+
+    Once connected, Orbis begins syncing:
+    - **Gmail** — email threads linked to contacts
+    - **Google Calendar** — meetings and events linked to attendees
+    - **Google Contacts** — people from your address book
+
+    Syncing runs in the background and updates continuously. You'll see sync status for each account in **Settings → Connected Accounts**.
+  </Step>
+
+  <Step title="Explore the dashboard">
+    After your contacts and integrations are set up, explore what Orbis has to offer:
+
+    - **Contacts** — browse your network, filter by tag or company, and click into any contact for their full interaction history
+    - **Inbox** — see recent emails linked to your contacts in one place
+    - **Calendar** — view upcoming and past meetings alongside your contacts
+    - **Deep Search** — ask questions about your network in plain language, for example: _"Who have I not spoken to in 3 months?"_ or _"Find everyone I met at the Product conference"_
+    - **Boards** — create Kanban pipelines to manage relationship workflows
+
+  </Step>
+</Steps>
+
+## What to do next
+
+Now that your workspace is set up, here are a few things worth exploring:
+
+<CardGroup cols={2}>
+  <Card title="Enrich your contacts" icon="wand-magic-sparkles" href="/contacts/enrichment">
+    Let Orbis fill in missing details like job titles, company info, and social profiles automatically.
+  </Card>
+  <Card title="Try Deep Search" icon="magnifying-glass" href="/ai/deep-search">
+    Ask natural-language questions about your entire network and interaction history.
+  </Card>
+  <Card title="Set up AI Agents" icon="robot" href="/ai/agents">
+    Automate follow-ups, data enrichment, and other repetitive tasks.
+  </Card>
+  <Card title="Create a Board" icon="columns-3" href="/boards">
+    Build a pipeline to manage any process that involves people — deals, hiring, partnerships.
+  </Card>
+</CardGroup>

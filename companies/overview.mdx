@@ -1,0 +1,95 @@
+---
+title: "Companies"
+description: "Track organizations in your network, view linked contacts, and see enriched company data."
+---
+
+A company record in Orbis represents an organization — a business, startup, nonprofit, or any other entity. Companies are linked to contacts, so you can navigate from a person to their employer and back, and track notes and interactions at the company level.
+
+## What a company record contains
+
+Each company record holds:
+
+- **Name and domain** — the company's legal name and website domain
+- **Logo** — automatically fetched via Brandfetch when a domain is known
+- **Description** — a short summary of what the company does
+- **Industry and size** — industry classification and employee count range
+- **Location** — city, region, country, and metro area
+- **Social profiles** — LinkedIn, Twitter/X, Facebook, and other public pages
+- **Financial data** — funding stage, total funding raised, revenue range, stock ticker, market cap, and IPO year when available
+- **Tech stack** — technologies the company uses, sourced from enrichment
+- **Contacts** — all people in your network who work at this company
+
+## The companies list
+
+The companies list shows all organizations in your Orbis workspace. You can:
+
+- **Search** by company name or domain
+- **Filter** by industry, employee size, country, or whether a LinkedIn or website is present
+- **Sort** by name, contact count, or date added
+- **Switch views** between a table and a kanban board organized by lifecycle stage or relationship type
+
+Each row shows the company logo, name, domain, industry, size, and the number of contacts linked to it.
+
+## Company profile
+
+Click any company to open its profile. The profile is organized into sections:
+
+<CardGroup cols={2}>
+  <Card title="Overview" icon="building">
+    Name, domain, logo, description, industry, employee count, location, and all social links. Also shows your relationship metadata: relationship type (customer, partner, vendor, etc.), lifecycle stage, priority, and sentiment.
+  </Card>
+  <Card title="Contacts" icon="users">
+    All contacts in your network who work at this company. Click any contact to go to their profile.
+  </Card>
+  <Card title="Notes" icon="note-sticky">
+    Notes linked to this company. You can create new notes from here or link existing notes.
+  </Card>
+  <Card title="Funding" icon="chart-line">
+    Funding stage, total funding, revenue range, and investor information when available from enrichment.
+  </Card>
+  <Card title="Tech stack" icon="microchip">
+    Technologies detected on the company's website and public profiles.
+  </Card>
+  <Card title="Website intelligence" icon="globe">
+    A summary of the company's website content, when available.
+  </Card>
+</CardGroup>
+
+### Relationship metadata
+
+You can track your organization's relationship with each company using:
+
+- **Relationship type** — customer, partner, vendor, investor, portfolio, prospect, competitor, or other
+- **Lifecycle stage** — prospect, lead, opportunity, negotiation, committed, customer, churned, or dormant
+- **Priority** — high, medium, low, or none
+- **Sentiment** — positive, neutral, negative, or mixed
+- **Owner** — the team member responsible for this relationship
+- **Tags** — custom labels for grouping and filtering
+
+## Company enrichment
+
+Orbis enriches company records automatically when a domain is known. Enrichment pulls:
+
+- **Logo and brand colors** via Brandfetch
+- **Description, industry, and employee count** via PeopleDataLabs (PDL)
+- **Social links** via PDL and public data
+
+Enrichment runs when a company is first created or when you trigger it manually from the company profile's action menu.
+
+<Info>
+Company logo and brand data is fetched automatically when a domain is known. Logo enrichment is included as part of your Orbis plan.
+</Info>
+
+## Adding companies
+
+### Auto-created from contacts
+
+When you add or import a contact with a company name or domain, Orbis creates a company record automatically if one doesn't already exist. The contact is then linked to that company.
+
+### Added manually
+
+To add a company without an associated contact, click **Add company** in the companies list. Enter the company name and domain, then save. Enrichment runs automatically once the domain is known.
+
+<Tip>
+Adding a domain is the most important step — Orbis uses the domain to fetch the logo, match the company against enrichment databases, and deduplicate against existing records.
+</Tip>

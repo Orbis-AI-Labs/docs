@@ -1,0 +1,191 @@
+---
+title: "Custom Objects"
+description: "Extend Orbis with your own data models. Custom objects let you track anything beyond contacts and companies — deals, projects, investments, events, and more."
+---
+
+Orbis comes with Contacts and Companies built in, but every relationship-driven workflow is different. Custom objects let you define your own data models, add the fields you need, and link records back to the people and companies already in your network.
+
+## What are custom objects?
+
+A custom object is a user-defined data model — a new type of record you can create, track, and relate to the rest of your data in Orbis.
+
+Common examples:
+
+<CardGroup cols={2}>
+  <Card title="Deals" icon="dollar-sign">
+    Track sales opportunities through stages from qualification to close
+  </Card>
+  <Card title="Projects" icon="folder">
+    Manage client engagements, deliverables, and timelines
+  </Card>
+  <Card title="Investments" icon="chart-line">
+    Record investment rounds, valuations, and portfolio positions
+  </Card>
+  <Card title="Portfolio Companies" icon="building">
+    Track companies you've invested in with custom metrics
+  </Card>
+  <Card title="Events" icon="calendar">
+    Log conferences, meetings, or networking events you attend
+  </Card>
+  <Card title="Partnerships" icon="handshake">
+    Manage strategic alliances with status, value, and contacts
+  </Card>
+</CardGroup>
+
+## Creating a custom object type
+
+Go to **Settings → Custom Objects** and click **New Object Type** to open the object editor.
+
+<Steps>
+  <Step title="Name your object">
+    Enter a singular name (e.g., "Deal") and a plural name (e.g., "Deals"). Orbis uses these in the UI and navigation automatically.
+  </Step>
+  <Step title="Add a description (optional)">
+    A short description helps teammates understand what this object tracks when they see it in the sidebar.
+  </Step>
+  <Step title="Define your fields">
+    Add one or more fields. The first field you mark as **Title field** becomes the record's display name throughout Orbis.
+
+    At least one field is required before you can save the object type.
+  </Step>
+  <Step title="Save">
+    Click **Create Object Type**. Your new object type appears in the sidebar under its plural name and is ready to use immediately.
+  </Step>
+</Steps>
+
+<Note>
+  The URL slug for your object is generated from the name and cannot be changed after creation. Choose a clear, concise name before saving.
+</Note>
+
+## Field types
+
+When you add a field to a custom object, you choose its type. Each type controls how data is entered and displayed.
+
+### Basic fields
+
+| Type | Use for |
+|------|---------|
+| **Text** | Names, notes, descriptions, or any free-form text |
+| **Number** | Quantities, scores, or any numeric value |
+| **Email** | Email addresses (renders as a mailto link) |
+| **URL** | Website or external links |
+| **Phone** | Phone numbers |
+
+### Date and time
+
+| Type | Use for |
+|------|---------|
+| **Date** | Calendar dates like close date or start date |
+| **Date & Time** | Timestamps with time precision |
+
+### Selection
+
+| Type | Use for |
+|------|---------|
+| **Checkbox** | Yes/no, true/false fields |
+| **Select** | A single value from a predefined list (e.g., Stage, Status) |
+| **Multi-Select** | Multiple values from a predefined list (e.g., Tags, Categories) |
+
+When you choose **Select** or **Multi-Select**, you define the options directly in the field editor. Each option gets a label and a color, which appear as colored badges in table and pipeline views.
+
+### Numeric
+
+| Type | Use for |
+|------|---------|
+| **Currency** | Monetary amounts with currency formatting |
+| **Percentage** | Ratios or completion percentages |
+| **Rating** | Star ratings with a configurable maximum |
+
+### Relation fields
+
+Relation fields link records together within Orbis.
+
+| Type | Use for |
+|------|---------|
+| **Contact (Person)** | Link a record to a person in your Contacts |
+| **Record Reference** | Link to a record in another custom object type |
+| **Record Link** | Link to contacts, companies, or organization members |
+
+<Tip>
+  Use **Record Link** fields to connect your custom records back to existing contacts and companies. For example, a Deal record might have a "Contact" field linking to the contact you're selling to and a "Company" field linking to their company.
+</Tip>
+
+### Field options
+
+Every field has two optional settings:
+
+- **Required** — the field must be filled in when creating a record
+- **Title field** — this field's value is used as the record's name throughout Orbis (only one field per object can be the title)
+
+## Using templates
+
+When creating a new object type, you can start from a built-in template instead of building from scratch. Templates include a pre-configured set of fields for common use cases:
+
+- **Deal** — sales pipeline with Stage, Value, Status, and close dates
+- **Partnership** — alliance tracking with Type, Status, and Contract Value
+- **Invoice** — billing records with Amount, Due Date, and payment Status
+
+Select a template on the **New Object Type** screen to pre-fill the fields. You can add, remove, or rename any field before saving.
+
+## Creating records
+
+Once your object type is set up, you can add records to it.
+
+<Steps>
+  <Step title="Open the object">
+    Click the object name in the sidebar (e.g., "Deals") to open the records list.
+  </Step>
+  <Step title="Add a record">
+    Click **Add [Object Name]** in the top right. You can also import records in bulk from a CSV file.
+  </Step>
+  <Step title="Fill in the fields">
+    Complete the form for your new record. Required fields are marked with an asterisk.
+  </Step>
+  <Step title="Save">
+    Click **Create** to save the record. It appears immediately in the list.
+  </Step>
+</Steps>
+
+## Linking records to contacts and companies
+
+Any field with type **Contact (Person)** or **Record Link** (targeting contacts or companies) creates a relationship between your record and existing Orbis data.
+
+When you open a contact's profile, Orbis shows related records from your custom objects — for example, all Deals linked to that contact — in the contact's detail view.
+
+## Views
+
+Your records can be viewed in two modes, toggled from the toolbar:
+
+### Table view
+
+The default view. Every record is a row, and every field is a column. You can:
+
+- Sort by any column
+- Filter records using the filter builder
+- Show or hide columns
+- Enable edit mode to update fields inline
+- Export records to CSV
+
+### Pipeline (kanban) view
+
+If your object has at least one **Select** field with defined options, the pipeline view becomes available. Records are arranged as cards in columns based on the value of the select field.
+
+- Drag cards between columns to update the field value
+- If you have multiple select fields, use the column picker to switch which field controls the grouping
+- Click any card to open the record detail
+
+<Tip>
+  Pipeline view works best for objects with a clear stage or status progression — like a Deal going from Qualification → Proposal → Closed Won.
+</Tip>
+
+## Saved lists
+
+Use the **Save List** button in table view to save your current filters as a named list. Saved lists appear in the sidebar under the object name and reload the same filtered view whenever you click them.
+
+## Editing and deleting an object type
+
+To update an existing object type's fields, click the **Settings** icon on the object's records page or navigate to **Settings → Custom Objects** and select the object.
+
+<Warning>
+  Deleting a field from an object type may permanently delete existing data stored in that field for all records. Review carefully before removing fields.
+</Warning>

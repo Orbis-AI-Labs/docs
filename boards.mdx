@@ -1,0 +1,126 @@
+---
+title: "Boards"
+description: "Kanban-style pipelines for managing relationship workflows. Create boards to move contacts and tasks through stages — from first outreach to closed deal."
+---
+
+A board is a structured workspace for tracking progress through a multi-stage workflow. Each board contains tasks arranged in columns (Queued, Inbox, In Progress, Review, Done), and each task can be linked to a contact, assigned a priority, given a due date, and tagged.
+
+## What boards are for
+
+Boards work well for any process where you move things forward through defined stages:
+
+<CardGroup cols={2}>
+  <Card title="Fundraising pipeline" icon="chart-line">
+    Track investor conversations from first intro to term sheet
+  </Card>
+  <Card title="Job search" icon="briefcase">
+    Move applications from applied → interviewed → offer received
+  </Card>
+  <Card title="Investor relations" icon="building-columns">
+    Manage LP updates, requests, and follow-ups in one view
+  </Card>
+  <Card title="Sales pipeline" icon="dollar-sign">
+    Follow deals from discovery through negotiation to close
+  </Card>
+  <Card title="Partnership development" icon="handshake">
+    Coordinate outreach, due diligence, and agreement stages
+  </Card>
+  <Card title="Recruiting" icon="users">
+    Track candidates from sourcing through offer and onboarding
+  </Card>
+</CardGroup>
+
+## Creating a board
+
+<Steps>
+  <Step title="Open Boards">
+    Click **Boards** in the sidebar.
+  </Step>
+  <Step title="Create a new board">
+    Click **New Board**. Enter a name and an optional objective that describes the board's purpose.
+  </Step>
+  <Step title="Start adding tasks">
+    Once the board is created, click **New Task** to add your first card.
+  </Step>
+</Steps>
+
+## Board columns
+
+Every board uses the same five-stage column structure:
+
+| Column | Purpose |
+|--------|---------|
+| **Queued** | Work that's lined up but not started yet |
+| **Inbox** | New items arriving for triage |
+| **In Progress** | Actively being worked |
+| **Review** | Awaiting feedback or approval |
+| **Done** | Completed |
+
+## Tasks
+
+Each card on a board is a task. Tasks have:
+
+- **Title** — a short description of the work
+- **Priority** — Low, Medium, High, or Urgent
+- **Due date** — an optional deadline
+- **Contact** — a linked contact from your network
+- **Tags** — colored labels for filtering and grouping
+- **Notes** — a free-text description or context
+
+### Creating a task
+
+Click **New Task** in the header, or click the **+** button at the bottom of any column to create a task directly in that stage.
+
+### Opening a task
+
+Click any card to open the task detail panel on the right side. From here you can edit all fields, add notes, and view the task's full history.
+
+## Moving cards between stages
+
+Drag a card from one column to another to update its status. The change is saved immediately and a confirmation toast appears.
+
+You can also update the status from inside the task detail panel using the status dropdown.
+
+## Filtering by tag
+
+If your board has tasks with tags, a tag filter bar appears above the board. Click any tag to show only tasks with that tag. Click again to deselect. Use **Clear** to remove all active tag filters.
+
+## Views
+
+Use the view switcher in the top right to change how tasks are displayed:
+
+<Tabs>
+  <Tab title="Kanban">
+    The default view. Tasks appear as cards in columns. Drag and drop to move cards between stages.
+  </Tab>
+  <Tab title="List">
+    Tasks grouped by status in a scrollable list. Each row shows the title, contact, due date, agent, and priority at a glance.
+  </Tab>
+  <Tab title="Table">
+    A compact spreadsheet-style view with all task fields as columns. Useful for comparing many tasks side by side.
+  </Tab>
+</Tabs>
+
+Your last-used view is remembered across sessions.
+
+## Board settings
+
+Click **Settings** in the board header to update the board's name and objective.
+
+## AI agents on boards
+
+Boards can have AI agents assigned to them. When an agent is active on a board, it can move tasks between stages automatically based on completed work.
+
+- Active agents appear as buttons below the board header
+- Each agent shows a status indicator (green = active, yellow = provisioning, red = error)
+- Click an agent's button to open its detail page
+
+See [AI Agents](/ai/agents) for more on setting up and managing agents.
+
+## Approvals
+
+Some tasks may require human approval before an agent can proceed. Click **Approvals** in the board header to see any pending approval requests and resolve them.
+
+## Memory
+
+Click **Memory** in the board header to view and manage the context your AI agents have stored for this board. Memory helps agents make better decisions by retaining information across tasks.
