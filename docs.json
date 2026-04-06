@@ -104,6 +104,12 @@
             ]
           },
           {
+            "group": "Products",
+            "pages": [
+              "integrations/chrome-extension"
+            ]
+          },
+          {
             "group": "Integrations",
             "pages": [
               {
@@ -117,8 +123,7 @@
                   "integrations/email-health"
                 ]
               },
-              "integrations/linkedin",
-              "integrations/chrome-extension"
+              "integrations/linkedin"
             ]
           },
           {
