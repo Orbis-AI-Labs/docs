@@ -19,16 +19,10 @@
   },
   "seo": {
     "indexing": "navigable",
-    "metatags": [
-      {
-        "property": "og:site_name",
-        "content": "Orbis Docs"
-      },
-      {
-        "name": "twitter:site",
-        "content": "@meetorbis"
-      }
-    ]
+    "metatags": {
+      "og:site_name": "Orbis Docs",
+      "twitter:site": "@meetorbis"
+    }
   },
   "thumbnails": {
     "appearance": "light",
