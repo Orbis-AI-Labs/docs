@@ -104,6 +104,12 @@
             ]
           },
           {
+            "group": "Products",
+            "pages": [
+              "integrations/chrome-extension"
+            ]
+          },
+          {
             "group": "Integrations",
             "pages": [
               {
