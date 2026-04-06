@@ -17,6 +17,16 @@
   "icons": {
     "library": "lucide"
   },
+  "fonts": {
+    "heading": {
+      "family": "Inter",
+      "weight": 600
+    },
+    "body": {
+      "family": "Inter",
+      "weight": 400
+    }
+  },
   "seo": {
     "indexing": "navigable",
     "metatags": {
