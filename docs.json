@@ -1,6 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "Orbis",
+  "description": "Documentation for Orbis — the AI relationship workspace for founders. Manage contacts, run campaigns, and automate workflows with AI agents.",
   "theme": "luma",
   "logo": {
     "light": "/logo-light.svg",
@@ -15,6 +16,25 @@
   },
   "icons": {
     "library": "lucide"
+  },
+  "seo": {
+    "indexing": "navigable",
+    "metatags": [
+      {
+        "property": "og:site_name",
+        "content": "Orbis Docs"
+      },
+      {
+        "name": "twitter:site",
+        "content": "@meetorbis"
+      }
+    ]
+  },
+  "thumbnails": {
+    "appearance": "light",
+    "fonts": {
+      "family": "Inter"
+    }
   },
   "navbar": {
     "primary": {
