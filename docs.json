@@ -117,7 +117,8 @@
                   "integrations/email-health"
                 ]
               },
-              "integrations/linkedin"
+              "integrations/linkedin",
+              "integrations/chrome-extension"
             ]
           },
           {
