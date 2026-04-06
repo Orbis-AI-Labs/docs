@@ -85,7 +85,15 @@
                   "contacts/enrichment"
                 ]
               },
-              "companies/overview",
+              {
+                "group": "Companies",
+                "expanded": true,
+                "pages": [
+                  "companies/overview",
+                  "companies/import",
+                  "companies/enrichment"
+                ]
+              },
               "investors",
               "tasks",
               "boards",

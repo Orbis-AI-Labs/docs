@@ -1,0 +1,57 @@
+---
+title: "Company Enrichment"
+description: "Orbis automatically enriches company records with logos, financial data, social profiles, tech stack, and website intelligence."
+---
+
+Company enrichment fills in data you didn't supply manually — logos, descriptions, financial information, social profiles, tech stack, and more. Orbis enriches companies automatically when a domain is known.
+
+## What enrichment fills in
+
+<CardGroup cols={2}>
+  <Card title="Logo and brand" icon="image">
+    Company logo, brand colors, and fonts via Brandfetch
+  </Card>
+  <Card title="Company profile" icon="building">
+    Description, industry, sector, employee count, founded year, and company type via PeopleDataLabs
+  </Card>
+  <Card title="Social profiles" icon="share-2">
+    LinkedIn, Twitter, Facebook, GitHub, Instagram, YouTube, and Crunchbase URLs
+  </Card>
+  <Card title="Financial data" icon="dollar-sign">
+    Funding stage, total funding, revenue range, stock ticker, exchange, market cap, IPO year, ISIN, and CIK
+  </Card>
+  <Card title="Tech stack" icon="cpu">
+    Technologies and platforms detected on the company's website and public profiles
+  </Card>
+  <Card title="Website intelligence" icon="globe">
+    AI-generated summary of the company's website content, refreshed periodically
+  </Card>
+</CardGroup>
+
+Enrichment only writes to fields that are currently empty. It won't overwrite data you've already entered.
+
+## How enrichment is triggered
+
+### On creation
+
+Enrichment starts automatically when a company is created with a domain — whether added manually, via CSV import, or auto-created from a contact.
+
+### On demand
+
+You can manually trigger enrichment on any company from the company profile's action menu. This is useful if you want to refresh data or if the company was created without a domain initially.
+
+## Data sources
+
+| Source | What it provides |
+|--------|-----------------|
+| **PeopleDataLabs (PDL)** | Company profile data: description, industry, employee count, social links, financial data, alternative names and domains |
+| **Brandfetch** | Logo, brand colors, and fonts |
+| **Website scraping** | AI-generated website summary (website intelligence card) |
+
+## Alternative names and domains
+
+PDL enrichment may return alternative company names and domain aliases. These appear on the company profile and help with matching when the company is known by different names or operates multiple domains.
+
+<Info>
+  Company logo and brand data is fetched automatically when a domain is known. Logo enrichment is included as part of your Orbis plan.
+</Info>
