@@ -95,14 +95,8 @@
             "group": "Legal",
             "pages": [
               "workspace/security",
-              {
-                "page": "Privacy Policy",
-                "href": "https://meetorbis.com/privacy"
-              },
-              {
-                "page": "Terms and Conditions",
-                "href": "https://meetorbis.com/terms"
-              }
+              "workspace/privacy",
+              "workspace/terms"
             ]
           }
         ]
