@@ -1,0 +1,49 @@
+---
+title: "Skills"
+description: "Skills are capabilities you assign to agents, giving them access to specific actions like reading emails, searching contacts, or calling external APIs."
+---
+
+Skills extend what an agent can do. Each skill gives an agent access to a specific capability — like reading emails, searching contacts, or calling an external API.
+
+## How skills work
+
+A skill is a self-contained capability that an agent can use when processing tasks. Skills are sourced from a shared skill catalog that your organization can extend, and are organized by category — for example, search skills, communication skills, or data skills.
+
+An agent without any skills can still read your CRM data and generate insights. Adding skills unlocks the ability to take specific actions.
+
+## Assigning skills to an agent
+
+<Steps>
+  <Step title="Open the agent">
+    Navigate to **Agents** in the sidebar and click the agent you want to configure.
+  </Step>
+  <Step title="Go to the Skills tab">
+    Click the **Skills** tab on the agent detail page.
+  </Step>
+  <Step title="Add a skill">
+    Click **Add Skill** and search or browse the skill catalog. Click a skill to assign it to the agent.
+  </Step>
+</Steps>
+
+To remove a skill, click the **x** button next to the skill in the agent's Skills tab.
+
+## Skill categories
+
+<CardGroup cols={2}>
+  <Card title="Search" icon="magnifying-glass">
+    Search contacts, companies, notes, and interactions across your workspace
+  </Card>
+  <Card title="Communication" icon="envelope">
+    Read and draft emails, access inbox threads
+  </Card>
+  <Card title="Data" icon="database">
+    Enrich contacts, look up company information, access external data sources
+  </Card>
+  <Card title="Actions" icon="bolt">
+    Create notes, update contact fields, move board cards, and trigger workflows
+  </Card>
+</CardGroup>
+
+<Note>
+  Skills control what an agent *can* do, not what it *will* do. The agent's soul template and assigned board determine when and how it uses its skills.
+</Note>

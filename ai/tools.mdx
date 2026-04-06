@@ -1,0 +1,43 @@
+---
+title: "Tools"
+description: "Tools are the building blocks that power skills and agent actions — individual functions like sending an email, looking up a domain, or creating a note."
+---
+
+Tools are the individual functions that agents execute when using their skills. While skills define broad capabilities (like "communication"), tools are the specific actions within those capabilities — sending an email, looking up a LinkedIn profile, or creating a CRM note.
+
+## How tools relate to skills
+
+Skills are composed of one or more tools. When you assign a skill to an agent, the agent gains access to all the tools bundled in that skill. You don't need to configure tools individually — assigning skills is enough.
+
+## Built-in tools
+
+Orbis includes a set of built-in tools that power core functionality:
+
+<CardGroup cols={2}>
+  <Card title="Contact lookup" icon="user">
+    Search and retrieve contact records by name, email, company, or domain
+  </Card>
+  <Card title="Company lookup" icon="building">
+    Look up company details by domain, including enrichment data
+  </Card>
+  <Card title="Note creation" icon="note-sticky">
+    Create notes on contact or company profiles
+  </Card>
+  <Card title="Email send" icon="paper-plane">
+    Compose and send emails via a connected Gmail account
+  </Card>
+  <Card title="Web search" icon="globe">
+    Search the web for public information about a person or company
+  </Card>
+  <Card title="Calendar read" icon="calendar">
+    Access upcoming and past calendar events for a contact
+  </Card>
+</CardGroup>
+
+## Tool execution
+
+When an agent runs a task, it decides which tools to call based on the task context and its soul template. Tool calls are logged and visible in the agent's activity feed, so you can review exactly what actions were taken.
+
+<Tip>
+  Check the agent's activity log after task execution to see which tools were called and what data was returned. This is useful for debugging unexpected agent behavior.
+</Tip>
