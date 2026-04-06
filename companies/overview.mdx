@@ -93,3 +93,66 @@ To add a company without an associated contact, click **Add company** in the com
 <Tip>
 Adding a domain is the most important step — Orbis uses the domain to fetch the logo, match the company against enrichment databases, and deduplicate against existing records.
 </Tip>
+
+### CSV import
+
+You can import companies in bulk via CSV:
+
+<Steps>
+  <Step title="Open the import modal">
+    Click **Import** in the companies list toolbar, or use the Data Wizard from Deep Search.
+  </Step>
+  <Step title="Upload your CSV">
+    Drag and drop or select a CSV file (up to 2,000 rows). Orbis shows a 5-row preview.
+  </Step>
+  <Step title="Map columns">
+    Orbis auto-maps common headers (e.g., "headcount" maps to employee count). Review and adjust mappings. Unmapped columns can be imported as custom properties.
+  </Step>
+  <Step title="Import">
+    Click **Import**. Orbis normalizes domains (strips protocol, www, and paths), validates format, and skips duplicates. A tag is auto-created from the filename.
+  </Step>
+</Steps>
+
+After import, a saved filter view is automatically created so you can quickly find your imported companies.
+
+### Company directory
+
+When adding a company manually, Orbis searches a directory of 3.37M+ reference companies for autocomplete suggestions. This helps you find and add companies with pre-populated data, and avoids creating duplicates.
+
+## Pipeline view
+
+Switch to the **Pipeline** view to see companies as a kanban board. Companies are arranged as cards across columns based on:
+
+- **Lifecycle stage** (default) — prospect, lead, opportunity, negotiation, committed, customer, churned, dormant
+- **Relationship type** — customer, partner, vendor, investor, etc.
+- **Priority** — high, medium, low, none
+- **Sentiment** — positive, neutral, negative, mixed
+
+Drag cards between columns to update the field value. Each card shows the company logo, name, domain, contact count, and tags.
+
+Use the column picker to switch which field controls the grouping. Filter and search within the pipeline view using the toolbar.
+
+## Company detail cards
+
+The company profile page includes several detail cards:
+
+### Funding and financials
+Funding stage, type, total funding, revenue range, stock ticker, and exchange information.
+
+### Location
+Full address, metro area, continent, and coordinates.
+
+### Tech stack
+Technology badges showing the tools and platforms the company uses.
+
+### Website intelligence
+An AI-generated summary of the company's website content, with a "last scraped" timestamp showing when the data was refreshed.
+
+### Custom properties
+Add arbitrary key-value data to any company — 9 field types including text, number, URL, date, currency, and percentage. Manage properties from the company profile.
+
+### Brand data
+Company brand colors and fonts when available from Brandfetch enrichment.
+
+### Alternative names and domains
+Alternative company names and domain aliases sourced from PeopleDataLabs.

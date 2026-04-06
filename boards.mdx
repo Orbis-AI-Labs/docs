@@ -109,6 +109,38 @@ Switch between display modes using the view toggle:
   </Tab>
 </Tabs>
 
+## Board types
+
+| Type | Description |
+|------|-------------|
+| **Tasks** | The default org-wide task board — accessed at /tasks, hidden from the boards list |
+| **Pipeline** | Pipeline boards for tracking deals, recruiting, etc. — cannot be deleted |
+| **Custom** | User-created boards for any purpose |
+
 ## Board settings
 
 Click **Settings** in the board header to update the board's name, objective, and agent assignments.
+
+### Workflow rules
+
+Boards support 5 configurable workflow rules:
+
+| Rule | Effect |
+|------|--------|
+| **Require review before done** | Tasks must pass through Review before moving to Done |
+| **Require approval for done** | An approval request is created when a task is marked Done |
+| **Comment required for review** | A comment must be added before moving a task to Review |
+| **Block status changes with pending approval** | Tasks with pending approvals can't change status |
+| **Only board lead can change status** | Status changes are restricted to the designated board lead agent |
+
+### Custom fields
+
+Create custom field definitions scoped to the board. Supported types: text, long text, integer, decimal, boolean, date, datetime, URL, and JSON. Custom field values are set per task and appear in the task detail panel.
+
+### Approvals detail
+
+Each approval request includes: action type, status (pending/approved/rejected), a confidence percentage, rubric scores (scored evaluation criteria), the action payload, and agent attribution. Users can approve or reject from the Approvals panel with color-coded confidence badges.
+
+### Memory detail
+
+Board memory is a persistent store of observations, decisions, and context. Entries have content, tags, source, and authorship tracking. Both users and agents can add entries — designed for retaining context across sessions so agents make better-informed decisions over time.

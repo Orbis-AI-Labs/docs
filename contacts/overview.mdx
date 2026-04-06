@@ -107,3 +107,64 @@ You can set reminders on any contact in two ways:
 <Tip>
 Sort by **Follow-up** in the contacts list to quickly see everyone who needs attention.
 </Tip>
+
+## Advanced filtering
+
+The filter builder supports 40+ filterable fields organized by category:
+
+| Category | Example fields |
+|----------|---------------|
+| **Core** | Name, email, phone, company, title, location, tags |
+| **Activity** | Last interaction, interaction count, needs follow-up, channels |
+| **Categorization** | Role, visibility, how we met, is founder |
+| **PDL enrichment** | Headline, skills, industry, seniority, inferred salary, years of experience |
+| **Google Contacts** | Phones, birthday, organizations, addresses |
+| **Gmail intelligence** | Sentiment, trend, urgency, key topics, communication style |
+| **LinkedIn** | Headline, followers, match confidence |
+| **System** | Created date, updated date, source |
+
+Filter operators include: contains, equals, starts with, ends with, is empty, is not empty, numeric comparisons, and array membership. Combine multiple filters for precise queries.
+
+Use `Ctrl+Shift+F` to open the filter builder with a keyboard shortcut.
+
+## Contact detail cards
+
+The contact profile includes several enrichment and intelligence cards:
+
+### How we met
+A structured record of how you first connected — description, location, event URL, and first-met date. Editable via a modal on the contact profile.
+
+### Interaction timeline
+A chronological feed of all interactions with platform icons, dates, subjects, urgency badges, and follow-up status indicators.
+
+### Relationship intelligence
+When Gmail is connected, a card showing overall sentiment, trend, urgency, key topics, shared entities, and communication style — all extracted by AI from your email threads.
+
+### LinkedIn profile
+LinkedIn headline, about section, follower count, and match confidence level when a LinkedIn profile has been matched.
+
+### Professional info
+Job title, role classification, seniority level, industry, skills, and inferred years of experience from PDL enrichment.
+
+### Custom properties
+Arbitrary key-value data with 9 field types (text, number, boolean, URL, email, percent, date, select, array). Add, edit, and delete from the contact profile.
+
+## AI features
+
+### Profile generation
+Orbis can generate an AI summary of a contact from their existing data — enrichment, emails, notes, and interactions. Access this from the contact's action menu.
+
+### Web discovery
+Discovers additional social profiles, media mentions, and websites for a contact using AI, with confidence scores for each result.
+
+### AI draft generation
+Generate personalized email drafts for individual contacts or in batch (up to 20 at once). Choose from goal templates: Outreach, Ask Question, Give Feedback, or Re-engage. See [AI Drafts](/ai/drafts) for details.
+
+## Bulk actions
+
+Select multiple contacts to access bulk actions:
+
+- **Add to campaign** — enroll selected contacts in a campaign
+- **Generate AI drafts** — create personalized drafts for up to 20 contacts
+- **Edit tags** — add or remove tags across selected contacts
+- **Delete** — remove selected contacts

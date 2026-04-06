@@ -86,11 +86,13 @@
                 ]
               },
               "companies/overview",
+              "investors",
               "tasks",
               "boards",
               "campaigns",
               "custom-objects",
-              "notes"
+              "notes",
+              "search"
             ]
           },
           {
@@ -115,6 +117,7 @@
             "pages": [
               "ai/deep-search",
               "ai/agents",
+              "ai/drafts",
               "ai/skills",
               "ai/tools",
               "ai/ai-fields"
