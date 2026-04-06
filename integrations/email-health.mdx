@@ -1,0 +1,92 @@
+---
+title: "Email Health"
+description: "Check your email authentication DNS records to ensure good deliverability when sending from Orbis."
+---
+
+Email Health checks the DNS configuration of your connected Google accounts to make sure your emails are properly authenticated. Properly configured email authentication means your outreach is less likely to land in spam.
+
+## How it works
+
+Orbis checks four DNS records for each connected account's domain:
+
+<CardGroup cols={2}>
+  <Card title="SPF" icon="shield-check">
+    Verifies that Google is authorized to send email on behalf of your domain
+  </Card>
+  <Card title="DKIM" icon="signature">
+    Confirms a digital signature is set up proving emails came from your domain
+  </Card>
+  <Card title="DMARC" icon="lock">
+    Checks that a policy is in place telling receiving servers what to do with unauthenticated emails
+  </Card>
+  <Card title="MX Records" icon="server">
+    Confirms your domain's mail exchange records point to Google Workspace
+  </Card>
+</CardGroup>
+
+## Checking your email health
+
+Click the **Email Health** indicator in the Inbox toolbar. Orbis runs a DNS check against your connected accounts and shows results in a modal.
+
+Each account displays an overall status:
+
+| Status | Meaning |
+|--------|---------|
+| **Healthy** | All checks passed — your email authentication is properly configured |
+| **Warning** | Some issues found — your setup needs attention |
+| **Critical** | Action required — critical authentication issues detected |
+| **Personal** | You're using a personal email (gmail.com, etc.) — authentication is handled automatically by Google |
+
+## Fixing issues
+
+When a check fails, Orbis shows the exact DNS records you need to add. Each failed check expands to reveal:
+
+- The **record type** (TXT)
+- The **name/host** value
+- The **record value** to add
+- A link to the relevant Google setup guide
+
+You can copy each value directly from the modal and paste it into your domain registrar's DNS settings.
+
+### SPF setup
+
+If SPF is missing or doesn't include Google:
+
+```
+Type: TXT
+Name: @
+Value: v=spf1 include:_spf.google.com ~all
+```
+
+### DKIM setup
+
+DKIM requires generating a key from Google Admin Console:
+
+1. Open Google Admin Console
+2. Navigate to your domain and click **Generate new record**
+3. Copy the value and add it as a TXT record with name `google._domainkey`
+4. Return to Admin Console and click **Start authentication**
+
+<Note>
+  DKIM setup requires Google Workspace admin access.
+</Note>
+
+### DMARC setup
+
+If DMARC is missing or set to `none`:
+
+```
+Type: TXT
+Name: _dmarc
+Value: v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@yourdomain.com
+```
+
+DMARC policies range from monitoring only (`p=none`) to blocking failures entirely (`p=reject`). Start with `quarantine` and upgrade to `reject` once you've confirmed legitimate emails pass.
+
+## Multiple accounts
+
+If you have multiple Google accounts connected, Email Health checks each one independently. Click **Refresh** on any individual account to re-run its check, or refresh all accounts at once.
+
+<Tip>
+  Run an email health check before launching a campaign to make sure your deliverability is in good shape.
+</Tip>

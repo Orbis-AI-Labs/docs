@@ -36,8 +36,10 @@
             "group": "Core Features",
             "pages": [
               {
-                "page": "contacts/overview",
+                "group": "Contacts",
+                "expanded": true,
                 "pages": [
+                  "contacts/overview",
                   "contacts/import",
                   "contacts/enrichment"
                 ]
@@ -53,10 +55,18 @@
           {
             "group": "Integrations",
             "pages": [
-              "integrations/google",
-              "integrations/linkedin",
-              "integrations/calendar",
-              "integrations/inbox"
+              {
+                "group": "Google",
+                "expanded": true,
+                "pages": [
+                  "integrations/google",
+                  "integrations/add-google-account",
+                  "integrations/calendar",
+                  "integrations/inbox",
+                  "integrations/email-health"
+                ]
+              },
+              "integrations/linkedin"
             ]
           },
           {
@@ -67,6 +77,14 @@
               "ai/skills",
               "ai/tools",
               "ai/ai-fields"
+            ]
+          },
+          {
+            "group": "Workspace",
+            "pages": [
+              "workspace/organization",
+              "workspace/team-collaboration",
+              "workspace/notifications"
             ]
           },
           {
