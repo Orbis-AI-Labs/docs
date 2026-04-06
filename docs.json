@@ -23,6 +23,15 @@
     }
   },
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Blog",
+          "icon": "pen-line",
+          "href": "https://meetorbis.com/blog"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Documentation",
@@ -97,6 +106,27 @@
               "workspace/security",
               "workspace/privacy",
               "workspace/terms"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "groups": [
+          {
+            "group": "Free Tools",
+            "pages": [
+              "resources/outbound-calculator",
+              "resources/email-deliverability"
+            ]
+          },
+          {
+            "group": "Company Data",
+            "pages": [
+              "resources/sp-500",
+              "resources/ftse-100",
+              "resources/top-investors",
+              "resources/pre-seed-investors"
             ]
           }
         ]
