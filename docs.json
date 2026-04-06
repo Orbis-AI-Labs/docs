@@ -2,10 +2,16 @@
   "$schema": "https://mintlify.com/docs.json",
   "name": "Orbis",
   "theme": "luma",
+  "logo": {
+    "light": "/logo-light.svg",
+    "dark": "/logo-dark.svg",
+    "href": "https://meetorbis.com"
+  },
+  "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#6366F1",
-    "light": "#EEF2FF",
-    "dark": "#312E81"
+    "primary": "#6851FB",
+    "light": "#ACA3F4",
+    "dark": "#3D23FE"
   },
   "navbar": {
     "primary": {
