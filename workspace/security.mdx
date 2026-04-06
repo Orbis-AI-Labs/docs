@@ -1,0 +1,53 @@
+---
+title: "Security"
+description: "How Orbis protects your data, our Google CASA Tier 2 certification, and our approach to security."
+---
+
+Orbis takes the security of your data seriously. This page outlines our security practices, certifications, and how we handle the sensitive data you trust us with.
+
+## Google CASA Tier 2
+
+Orbis has passed **Google's Cloud Application Security Assessment (CASA) Tier 2** — an independent security audit required for apps that access sensitive Google user data like Gmail, Calendar, and Contacts.
+
+CASA Tier 2 means an accredited third-party lab has verified that Orbis meets Google's security standards for handling your data. This includes:
+
+- **Application security testing** — penetration testing and vulnerability assessment of the Orbis application
+- **Secure data handling** — verification that email, calendar, and contact data is stored and transmitted securely
+- **Access controls** — confirmation that proper authentication and authorization mechanisms are in place
+- **Infrastructure security** — review of our cloud infrastructure and deployment practices
+
+<Card title="Read the full story" icon="book-open" href="https://meetorbis.com/blog/how-we-passed-google-casa-tier-2-with-claude">
+  How we passed Google CASA Tier 2 — our process, what was involved, and what it means for Orbis users.
+</Card>
+
+## Data protection
+
+### Encryption
+
+- **In transit** — all data is encrypted using TLS 1.2+ between your browser and our servers
+- **At rest** — data stored in our databases and object storage is encrypted at rest
+
+### Authentication
+
+- Orbis uses Supabase Auth with secure session management
+- Google OAuth 2.0 for Google account connections with scoped permissions
+- Sessions are token-based with automatic refresh and expiration
+
+### Infrastructure
+
+- Hosted on Google Cloud Platform (GCP)
+- Database hosted on Supabase with row-level security (RLS) policies
+- All services run in isolated environments with least-privilege access
+
+## Google data usage
+
+When you connect your Google account, Orbis accesses your Gmail, Calendar, and Contacts data to power CRM features. We adhere to [Google's API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy):
+
+- We only access the data necessary to provide the features you use
+- We do not sell your Google data to third parties
+- We do not use your Google data for advertising
+- Access can be revoked at any time from **Settings → Connected Accounts**
+
+## Reporting vulnerabilities
+
+If you discover a security vulnerability in Orbis, please report it to **security@meetorbis.com**. We take all reports seriously and will respond promptly.

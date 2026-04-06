@@ -13,6 +13,9 @@
     "light": "#ACA3F4",
     "dark": "#3D23FE"
   },
+  "icons": {
+    "library": "lucide"
+  },
   "navbar": {
     "primary": {
       "type": "github",
@@ -84,13 +87,22 @@
             "pages": [
               "workspace/organization",
               "workspace/team-collaboration",
-              "workspace/notifications"
+              "workspace/notifications",
+              "settings"
             ]
           },
           {
-            "group": "Settings",
+            "group": "Legal",
             "pages": [
-              "settings"
+              "workspace/security",
+              {
+                "page": "Privacy Policy",
+                "href": "https://meetorbis.com/privacy"
+              },
+              {
+                "page": "Terms and Conditions",
+                "href": "https://meetorbis.com/terms"
+              }
             ]
           }
         ]
