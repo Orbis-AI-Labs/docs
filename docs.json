@@ -33,19 +33,21 @@
             ]
           },
           {
-            "group": "Contacts",
-            "pages": [
-              "contacts/overview",
-              "contacts/import",
-              "contacts/enrichment"
-            ]
-          },
-          {
             "group": "Core Features",
             "pages": [
+              {
+                "page": "contacts/overview",
+                "pages": [
+                  "contacts/import",
+                  "contacts/enrichment"
+                ]
+              },
               "companies/overview",
-              "notes",
-              "tasks"
+              "tasks",
+              "boards",
+              "campaigns",
+              "custom-objects",
+              "notes"
             ]
           },
           {
@@ -68,11 +70,8 @@
             ]
           },
           {
-            "group": "Customization",
+            "group": "Settings",
             "pages": [
-              "custom-objects",
-              "campaigns",
-              "boards",
               "settings"
             ]
           }

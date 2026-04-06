@@ -1,31 +1,34 @@
 ---
 title: "Tasks"
-description: "Create and manage to-dos and reminders linked to your contacts and relationships."
+description: "Create tasks, assign them to boards, and let AI agents work through them automatically."
 ---
 
-Tasks in Orbis are to-dos and reminders you can attach to contacts, companies, or keep standalone. Use them to stay on top of follow-ups, track relationship actions, and coordinate work with your team.
+Tasks are the core unit of work in Orbis. A task represents something that needs to happen — a follow-up to send, a contact to research, a deal to advance. Tasks can live on their own or be placed on a board where AI agents pick them up and execute them.
 
 ## Creating a task
 
-You can create a task from two places:
+You can create a task from several places:
 
-- **The Tasks view** — click **New task** from the main Tasks view
-- **A contact or company profile** — click **Add task** from the Tasks tab on the profile
+- **The Tasks view** — click **New Task** from the main Tasks page
+- **A board** — click **New Task** in the board header or the **+** button at the bottom of any column
+- **A contact or company profile** — click **Add Task** from the Tasks tab
 
 When creating a task, you can set:
 
 - **Title** — a short description of what needs to be done
-- **Description** — optional additional notes
-- **Due date and time** — when the task should be completed
-- **Status** — the task's current state
-- **Linked contacts** — one or more contacts this task relates to
-- **Linked companies** — one or more companies this task relates to
-- **Assignees** — team members responsible for completing the task
+- **Description** — additional context or instructions
+- **Priority** — Low, Medium, High, or Urgent
+- **Due date** — an optional deadline
+- **Contact** — link the task to a contact from your network
+- **Company** — link the task to a company
+- **Board** — assign the task to a board so agents can work on it
+- **Tags** — colored labels for filtering and grouping
+- **Assignees** — team members responsible (or leave it for an agent)
 - **Visibility** — private (only you) or organization (visible to your team)
 
 ## Task statuses
 
-Tasks move through the following statuses:
+Tasks move through five stages:
 
 | Status | Meaning |
 |--------|---------|
@@ -35,9 +38,9 @@ Tasks move through the following statuses:
 | **Review** | Waiting for review or approval |
 | **Done** | Completed |
 
-## Task priorities
+Update status by dragging the task between columns on a board, or using the status dropdown in the task detail panel.
 
-Each task can have one of four priority levels:
+## Task priorities
 
 | Priority | When to use |
 |----------|------------|
@@ -46,50 +49,47 @@ Each task can have one of four priority levels:
 | **High** | Important, needs attention soon |
 | **Urgent** | Must be done immediately |
 
-## Marking tasks complete
+## Assigning tasks to a board
 
-To complete a task, change its status to **Done** using the status selector in the task row or the task detail drawer. You can also bulk-update statuses by selecting multiple tasks in the list.
+When you assign a task to a board, it becomes part of that board's workflow. If the board has AI agents assigned to it, those agents can automatically pick up the task, execute it, and move it through the stages.
+
+This is where tasks become powerful — instead of manually working through a list of follow-ups or research items, you create the tasks, assign them to a board, and let an agent handle the execution.
+
+<Steps>
+  <Step title="Create or open a task">
+    Create a new task or open an existing one.
+  </Step>
+  <Step title="Select a board">
+    Choose a board from the **Board** dropdown. The task appears in the board's **Queued** column.
+  </Step>
+  <Step title="Let agents work">
+    If the board has an active agent, the agent picks up queued tasks on its heartbeat schedule, executes them, and moves them to **Done** or **Review** depending on whether approval is needed.
+  </Step>
+</Steps>
+
+See [Boards](/boards) for how to set up boards and assign agents to them.
 
 ## The Tasks view
 
-The main Tasks view gives you a full picture of all tasks across your workspace.
+The main Tasks view shows all tasks across your workspace. Switch between views using the toolbar:
 
-### List view
+<Tabs>
+  <Tab title="List">
+    Tasks in a table with columns for title, status, priority, due date, linked contacts, and assignees. Filter, sort, search, and bulk-update from here.
+  </Tab>
+  <Tab title="Kanban">
+    Tasks as cards organized across status columns. Drag cards between columns to update status.
+  </Tab>
+</Tabs>
 
-The list view shows tasks in a table with columns for title, status, priority, due date, linked contacts, linked companies, and assignees. You can:
+## Viewing tasks on profiles
 
-- **Filter** by status, priority, due date range, assigned contact, or assignee
-- **Sort** by due date, priority, or creation date
-- **Bulk select** tasks to update status or delete in bulk
-- **Search** across task titles
-
-### Kanban view
-
-Switch to the kanban view to see tasks organized as cards across status lanes. Drag cards between lanes to update their status.
+Tasks linked to a contact or company appear on that record's profile under the **Tasks** tab. This gives you a complete view of all pending and completed actions for any relationship.
 
 <Tip>
-Use the kanban view for a quick overview of your pipeline of relationship actions, and the list view when you need to filter by due date or contact.
+  Use the kanban view for a quick overview of your pipeline of relationship actions, and the list view when you need to filter by due date or contact.
 </Tip>
 
-## Reminders and notifications
+## Reminders
 
-Orbis sends a notification when a task's due date arrives. Make sure your notification preferences are configured in **Settings** to receive task reminders.
-
-<Note>
-Tasks linked to a contact also appear on the contact's profile under the **Tasks** tab, so you can see all pending actions for a relationship in one place.
-</Note>
-
-## Assigning tasks to team members
-
-When working in an organization, you can assign tasks to any active team member. The assignee sees the task in their own Tasks view and receives a notification when the task is due.
-
-Tasks default to assigning to yourself when created, but you can change or add assignees at any time.
-
-## Visibility
-
-Tasks can be:
-
-- **Private** — only visible to you (default)
-- **Organization** — visible to all members of your organization
-
-Set visibility when creating the task using the toggle in the task creation dialog.
+Orbis sends a notification when a task's due date arrives. Configure notification preferences in **Settings** to receive task reminders.
