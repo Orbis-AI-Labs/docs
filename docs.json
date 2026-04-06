@@ -36,6 +36,11 @@
       "family": "Inter"
     }
   },
+  "integrations": {
+    "intercom": {
+      "appId": "vh2t8ems"
+    }
+  },
   "navbar": {
     "primary": {
       "type": "github",
