@@ -1,0 +1,58 @@
+---
+title: "Authentication"
+description: "Create an API key and authenticate requests to the Orbis API."
+---
+
+## Create an API key
+
+1. Open the Orbis dashboard and go to **Settings > API Keys**
+2. Click **Create Key**
+3. Enter a name for the key (e.g. "Production", "CI/CD", "Development")
+4. Click **Create**
+
+Your API key will be displayed once — copy it immediately and store it securely. The key starts with `orbis_k_` and cannot be retrieved after you close the dialog.
+
+<Warning>
+  This is the only time you'll see the full key. If you lose it, you'll need to create a new one.
+</Warning>
+
+## Use the API key
+
+Pass your key as a Bearer token in the `Authorization` header:
+
+```bash
+curl https://api.meetorbis.com/v1/contacts \
+  -H "Authorization: Bearer orbis_k_your_key_here"
+```
+
+Or set it as an environment variable:
+
+```bash
+export ORBIS_API_KEY="orbis_k_your_key_here"
+
+curl https://api.meetorbis.com/v1/contacts \
+  -H "Authorization: Bearer $ORBIS_API_KEY"
+```
+
+## Manage keys
+
+From **Settings > API Keys** you can:
+
+- **View** all active keys with their name, prefix, and last used date
+- **Revoke** a key by clicking the trash icon — this takes effect immediately and any integrations using that key will stop working
+
+## Key format
+
+| Field | Example |
+|---|---|
+| Prefix | `orbis_k_` |
+| Displayed as | `orbis_k_a3f2...` (truncated) |
+| Scopes | All scopes (full access) |
+
+## Security best practices
+
+- Never commit API keys to version control
+- Use environment variables or a secrets manager
+- Create separate keys for each environment (development, staging, production)
+- Revoke keys you no longer need
+- Monitor the "Last used" date to identify unused keys

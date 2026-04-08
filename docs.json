@@ -166,7 +166,8 @@
           {
             "group": "Getting Started",
             "pages": [
-              "api-reference/overview"
+              "api-reference/overview",
+              "api-reference/authentication"
             ]
           },
           {
