@@ -46,7 +46,7 @@
     }
   },
   "openapi": [
-    "https://api.meetorbis.com/v1/openapi.json"
+    "/api-reference/openapi.json"
   ],
   "api": {
     "baseUrl": "https://api.meetorbis.com",
