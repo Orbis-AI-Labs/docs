@@ -45,6 +45,16 @@
       "appId": "vh2t8ems"
     }
   },
+  "openapi": [
+    "/api-reference/openapi.json"
+  ],
+  "api": {
+    "baseUrl": "https://api.meetorbis.com",
+    "auth": {
+      "method": "bearer",
+      "name": "Authorization"
+    }
+  },
   "navbar": {
     "primary": {
       "type": "github",
@@ -146,6 +156,156 @@
               "workspace/security",
               "workspace/privacy",
               "workspace/terms"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "api-reference/overview",
+              "api-reference/authentication"
+            ]
+          },
+          {
+            "group": "Enrichment",
+            "pages": [
+              "api-reference/enrichment/search-companies",
+              "api-reference/enrichment/lookup-company",
+              "api-reference/enrichment/get-company",
+              "api-reference/enrichment/batch-companies",
+              "api-reference/enrichment/search-people",
+              "api-reference/enrichment/lookup-person",
+              "api-reference/enrichment/get-person",
+              "api-reference/enrichment/batch-people",
+              "api-reference/enrichment/get-job"
+            ]
+          },
+          {
+            "group": "Contacts",
+            "pages": [
+              "api-reference/contacts/list-contacts",
+              "api-reference/contacts/create-contact",
+              "api-reference/contacts/get-contact",
+              "api-reference/contacts/update-contact",
+              "api-reference/contacts/delete-contact",
+              "api-reference/contacts/list-interactions",
+              "api-reference/contacts/list-threads",
+              "api-reference/contacts/list-events",
+              "api-reference/contacts/list-tasks"
+            ]
+          },
+          {
+            "group": "Companies",
+            "pages": [
+              "api-reference/companies/list-companies",
+              "api-reference/companies/add-company",
+              "api-reference/companies/get-company",
+              "api-reference/companies/update-company",
+              "api-reference/companies/remove-company",
+              "api-reference/companies/list-contacts",
+              "api-reference/companies/list-interactions",
+              "api-reference/companies/list-tasks"
+            ]
+          },
+          {
+            "group": "Interactions",
+            "pages": [
+              "api-reference/interactions/list-interactions",
+              "api-reference/interactions/create-interaction",
+              "api-reference/interactions/get-interaction"
+            ]
+          },
+          {
+            "group": "Search",
+            "pages": [
+              "api-reference/search/global-search"
+            ]
+          },
+          {
+            "group": "Email Threads",
+            "pages": [
+              "api-reference/threads/list-threads",
+              "api-reference/threads/get-thread",
+              "api-reference/threads/reply",
+              "api-reference/threads/archive",
+              "api-reference/threads/trash"
+            ]
+          },
+          {
+            "group": "Calendar",
+            "pages": [
+              "api-reference/calendar/list-events",
+              "api-reference/calendar/create-event",
+              "api-reference/calendar/get-event",
+              "api-reference/calendar/update-event",
+              "api-reference/calendar/delete-event"
+            ]
+          },
+          {
+            "group": "Campaigns",
+            "pages": [
+              "api-reference/campaigns/list-campaigns",
+              "api-reference/campaigns/create-campaign",
+              "api-reference/campaigns/get-campaign",
+              "api-reference/campaigns/delete-campaign",
+              "api-reference/campaigns/list-contacts",
+              "api-reference/campaigns/add-contacts",
+              "api-reference/campaigns/archive"
+            ]
+          },
+          {
+            "group": "Emails",
+            "pages": [
+              "api-reference/emails/send-email",
+              "api-reference/emails/create-draft",
+              "api-reference/emails/update-draft",
+              "api-reference/emails/discard-draft",
+              "api-reference/emails/send-draft"
+            ]
+          },
+          {
+            "group": "Boards",
+            "pages": [
+              "api-reference/boards/list-boards",
+              "api-reference/boards/get-board",
+              "api-reference/boards/list-tasks",
+              "api-reference/boards/create-task"
+            ]
+          },
+          {
+            "group": "Tasks",
+            "pages": [
+              "api-reference/tasks/get-task",
+              "api-reference/tasks/update-task",
+              "api-reference/tasks/delete-task",
+              "api-reference/tasks/add-comment"
+            ]
+          },
+          {
+            "group": "Notes",
+            "pages": [
+              "api-reference/notes/list-notes",
+              "api-reference/notes/create-note",
+              "api-reference/notes/get-note",
+              "api-reference/notes/update-note",
+              "api-reference/notes/delete-note"
+            ]
+          },
+          {
+            "group": "Agents",
+            "pages": [
+              "api-reference/agents/list-agents",
+              "api-reference/agents/create-agent",
+              "api-reference/agents/get-agent",
+              "api-reference/agents/update-agent",
+              "api-reference/agents/delete-agent",
+              "api-reference/agents/list-skills",
+              "api-reference/agents/add-skill",
+              "api-reference/agents/remove-skill"
             ]
           }
         ]
