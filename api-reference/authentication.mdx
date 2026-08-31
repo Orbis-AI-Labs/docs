@@ -5,7 +5,7 @@ description: "Create an API key and authenticate requests to the Orbis API."
 
 ## Create an API key
 
-1. Open the Orbis dashboard and go to **Settings > API Keys**
+1. Open the Orbis dashboard and go to **Settings → API & MCP**
 2. Click **Create Key**
 3. Enter a name for the key (e.g. "Production", "CI/CD", "Development")
 4. Click **Create**
@@ -36,10 +36,12 @@ curl https://api.meetorbis.com/v1/contacts \
 
 ## Manage keys
 
-From **Settings > API Keys** you can:
+From **Settings → API & MCP** you can:
 
 - **View** all active keys with their name, prefix, and last used date
 - **Revoke** a key by clicking the trash icon — this takes effect immediately and any integrations using that key will stop working
+
+A request made with a missing, malformed, expired, or revoked key is rejected with `401 Unauthorized`.
 
 ## Key format
 
@@ -47,7 +49,30 @@ From **Settings > API Keys** you can:
 |---|---|
 | Prefix | `orbis_k_` |
 | Displayed as | `orbis_k_a3f2...` (truncated) |
-| Scopes | All scopes (full access) |
+
+## Scopes
+
+API keys carry scopes drawn from a `resource:action` vocabulary. The canonical set is:
+
+| Scope | Grants |
+|---|---|
+| `contacts:read` / `contacts:write` | Read / manage contacts |
+| `companies:read` / `companies:write` | Read / manage companies |
+| `interactions:read` / `interactions:write` | Read / log interactions |
+| `notes:read` / `notes:write` | Read / manage notes |
+| `emails:read` / `emails:write` | Read email threads / manage drafts |
+| `emails:send` | Send email (drafts and direct sends) |
+| `calendar:read` / `calendar:write` | Read / manage calendar events |
+| `pipelines:read` / `pipelines:write` | Read / manage boards, tasks, and comments |
+| `campaigns:read` / `campaigns:write` | Read / manage campaigns |
+| `agents:read` / `agents:write` | Read / manage agents and their skills |
+| `enrichment:execute` | Run enrichment lookups and batches |
+| `search:execute` | Run global search |
+| `insights:read` | Read relationship insights |
+
+<Note>
+  Per-key scoping is being rolled out. Existing keys are grandfathered as effectively all-access (a key with no scopes is treated as full access), so scope names are not yet enforced on every endpoint. Design integrations against the scopes above so they keep working as enforcement is enabled.
+</Note>
 
 ## Security best practices
 

@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Orbis API",
     "description": "Public API for Orbis CRM \u2014 enrichment, contacts, companies, and more.",
@@ -45,8 +45,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Industry"
             }
           },
@@ -55,8 +61,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Country"
             }
           },
@@ -249,8 +261,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Company"
             }
           },
@@ -259,8 +277,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Title"
             }
           },
@@ -269,8 +293,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Country"
             }
           },
@@ -491,8 +521,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Q"
             }
           },
@@ -501,8 +537,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Company"
             }
           },
@@ -511,8 +553,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Tags"
             }
           },
@@ -521,8 +569,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Source"
             }
           },
@@ -531,8 +585,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Has Email"
             }
           },
@@ -541,8 +601,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Cursor"
             }
           },
@@ -656,8 +722,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "description": "Comma-separated: enrichment,interactions,threads,events,tasks",
               "title": "Include"
             },
@@ -1049,8 +1121,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Q"
             }
           },
@@ -1059,8 +1137,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Industry"
             }
           },
@@ -1069,8 +1153,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Lifecycle Stage"
             }
           },
@@ -1079,8 +1169,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Priority"
             }
           },
@@ -1089,8 +1185,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Tags"
             }
           },
@@ -1099,8 +1201,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Cursor"
             }
           },
@@ -1214,8 +1322,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Include"
             }
           }
@@ -1545,8 +1659,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Type"
             }
           },
@@ -1555,8 +1675,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Platform"
             }
           },
@@ -1565,8 +1691,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Contact Id"
             }
           },
@@ -1575,8 +1707,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Direction"
             }
           },
@@ -1585,8 +1723,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "After"
             }
           },
@@ -1595,8 +1739,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Before"
             }
           },
@@ -1605,8 +1755,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Cursor"
             }
           },
@@ -1806,8 +1962,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Contact Id"
             }
           },
@@ -1816,8 +1978,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Labels"
             }
           },
@@ -1826,8 +1994,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Provider"
             }
           },
@@ -1836,8 +2010,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Urgency"
             }
           },
@@ -1846,8 +2026,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Follow Up Status"
             }
           },
@@ -1856,8 +2042,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Is Conversational"
             }
           },
@@ -1866,8 +2058,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "After"
             }
           },
@@ -1876,8 +2074,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Before"
             }
           },
@@ -1886,8 +2090,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Cursor"
             }
           },
@@ -2151,8 +2361,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "After"
             }
           },
@@ -2161,8 +2377,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Before"
             }
           },
@@ -2171,8 +2393,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Contact Id"
             }
           },
@@ -2181,8 +2409,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Calendar Id"
             }
           },
@@ -2191,8 +2425,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Cursor"
             }
           },
@@ -2461,8 +2701,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Status"
             }
           },
@@ -2471,8 +2717,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Cursor"
             }
           },
@@ -3153,8 +3405,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Status"
             }
           },
@@ -3163,8 +3421,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Priority"
             }
           },
@@ -3173,8 +3437,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Assignee"
             }
           },
@@ -3183,8 +3453,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Tag"
             }
           },
@@ -3193,8 +3469,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Q"
             }
           },
@@ -3203,8 +3485,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Cursor"
             }
           },
@@ -3528,8 +3816,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Q"
             }
           },
@@ -3538,8 +3832,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Tags"
             }
           },
@@ -3548,8 +3848,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Contact Id"
             }
           },
@@ -3558,8 +3864,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Company Id"
             }
           },
@@ -3568,8 +3880,14 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "nullable": true,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "title": "Cursor"
             }
           },
@@ -4214,8 +4532,14 @@
       "ActionData": {
         "properties": {
           "id": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Id"
           },
           "action": {
@@ -4250,25 +4574,49 @@
             "title": "Name"
           },
           "board_id": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Board Id"
           },
           "soul_template": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Soul Template"
           },
           "identity_profile": {
-            "additionalProperties": true,
-            "type": "object",
-            "nullable": true,
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Identity Profile"
           },
           "heartbeat_config": {
-            "additionalProperties": true,
-            "type": "object",
-            "nullable": true,
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Heartbeat Config"
           }
         },
@@ -4281,40 +4629,82 @@
       "AgentUpdate": {
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Name"
           },
           "board_id": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Board Id"
           },
           "status": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Status"
           },
           "soul_template": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Soul Template"
           },
           "identity_profile": {
-            "additionalProperties": true,
-            "type": "object",
-            "nullable": true,
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Identity Profile"
           },
           "heartbeat_config": {
-            "additionalProperties": true,
-            "type": "object",
-            "nullable": true,
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Heartbeat Config"
           },
           "is_board_lead": {
-            "type": "boolean",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Is Board Lead"
           }
         },
@@ -4331,8 +4721,14 @@
             "title": "Contact Ids"
           },
           "tone": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Tone"
           }
         },
@@ -4349,8 +4745,14 @@
             "title": "Name"
           },
           "goal": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Goal"
           }
         },
@@ -4380,36 +4782,72 @@
             "title": "Name"
           },
           "domain": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Domain"
           },
           "industry": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Industry"
           },
           "lifecycle_stage": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Lifecycle Stage"
           },
           "priority": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Priority"
           },
           "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Tags"
           },
           "notes": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Notes"
           }
         },
@@ -4422,47 +4860,95 @@
       "CompanyUpdate": {
         "properties": {
           "lifecycle_stage": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Lifecycle Stage"
           },
           "priority": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Priority"
           },
           "sentiment": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Sentiment"
           },
           "relationship": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Relationship"
           },
           "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Tags"
           },
           "notes": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Notes"
           },
           "owner": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Owner"
           },
           "custom_properties": {
-            "additionalProperties": true,
-            "type": "object",
-            "nullable": true,
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Custom Properties"
           }
         },
@@ -4476,47 +4962,89 @@
             "title": "Display Name"
           },
           "emails": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Emails"
           },
           "phones": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Phones"
           },
           "company": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Company"
           },
           "title": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Title"
           },
           "location": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Location"
           },
           "notes": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Notes"
           },
           "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Tags"
           }
         },
@@ -4529,79 +5057,157 @@
       "ContactUpdate": {
         "properties": {
           "display_name": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Display Name"
           },
           "emails": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Emails"
           },
           "phones": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Phones"
           },
           "company": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Company"
           },
           "title": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Title"
           },
           "location": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Location"
           },
           "social_profiles": {
-            "additionalProperties": true,
-            "type": "object",
-            "nullable": true,
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Social Profiles"
           },
           "avatar_url": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Avatar Url"
           },
           "notes": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Notes"
           },
           "role": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Role"
           },
           "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Tags"
           },
           "visibility": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Visibility"
           },
           "custom_properties": {
-            "additionalProperties": true,
-            "type": "object",
-            "nullable": true,
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Custom Properties"
           }
         },
@@ -4611,8 +5217,14 @@
       "CreatedData": {
         "properties": {
           "id": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Id"
           },
           "created": {
@@ -4702,7 +5314,7 @@
       "DraftCreate": {
         "properties": {
           "to": {
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "string"
               },
@@ -4724,8 +5336,14 @@
             "title": "Body"
           },
           "reply_to_thread_id": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Reply To Thread Id"
           }
         },
@@ -4740,7 +5358,7 @@
       "DraftUpdate": {
         "properties": {
           "to": {
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "string"
               },
@@ -4749,19 +5367,33 @@
                   "type": "string"
                 },
                 "type": "array"
+              },
+              {
+                "type": "null"
               }
             ],
-            "nullable": true,
             "title": "To"
           },
           "subject": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Subject"
           },
           "body": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Body"
           }
         },
@@ -4836,9 +5468,15 @@
             "description": "pending | running | completed | failed"
           },
           "result": {
-            "additionalProperties": true,
-            "type": "object",
-            "nullable": true,
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Result"
           }
         },
@@ -4858,14 +5496,26 @@
             "description": "found | enriching | queued"
           },
           "data": {
-            "additionalProperties": true,
-            "type": "object",
-            "nullable": true,
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Data"
           },
           "job_id": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Job Id"
           }
         },
@@ -4914,8 +5564,14 @@
             "title": "Title"
           },
           "description": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Description"
           },
           "start_at": {
@@ -4932,26 +5588,50 @@
             "default": false
           },
           "location": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Location"
           },
           "attendees": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Attendees"
           },
           "calendar_id": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Calendar Id"
           },
           "recurrence": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Recurrence"
           },
           "add_google_meet": {
@@ -5084,18 +5764,36 @@
             "default": "n/a"
           },
           "subject": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Subject"
           },
           "snippet": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Snippet"
           },
           "occurred_at": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Occurred At"
           }
         },
@@ -5134,32 +5832,56 @@
             "title": "Title"
           },
           "content": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Content"
           },
           "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Tags"
           },
           "contact_ids": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Contact Ids"
           },
           "company_ids": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Company Ids"
           },
           "visibility": {
@@ -5177,26 +5899,50 @@
       "NoteUpdate": {
         "properties": {
           "title": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Title"
           },
           "content": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Content"
           },
           "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Tags"
           },
           "visibility": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Visibility"
           }
         },
@@ -5206,8 +5952,14 @@
       "PaginationMeta": {
         "properties": {
           "next_cursor": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Next Cursor"
           },
           "has_more": {
@@ -5216,8 +5968,14 @@
             "default": false
           },
           "total": {
-            "type": "integer",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Total"
           }
         },
@@ -5227,14 +5985,26 @@
       "ProxyResponse": {
         "properties": {
           "data": {
-            "additionalProperties": true,
-            "type": "object",
-            "nullable": true,
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Data"
           },
           "error": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Error"
           }
         },
@@ -5249,11 +6019,17 @@
             "title": "Query"
           },
           "resources": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Resources"
           },
           "semantic": {
@@ -5262,9 +6038,15 @@
             "default": false
           },
           "filters": {
-            "additionalProperties": true,
-            "type": "object",
-            "nullable": true,
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Filters"
           },
           "size": {
@@ -5282,7 +6064,7 @@
       "SendEmailRequest": {
         "properties": {
           "to": {
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "string"
               },
@@ -5304,7 +6086,7 @@
             "title": "Body"
           },
           "cc": {
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "string"
               },
@@ -5313,13 +6095,15 @@
                   "type": "string"
                 },
                 "type": "array"
+              },
+              {
+                "type": "null"
               }
             ],
-            "nullable": true,
             "title": "Cc"
           },
           "bcc": {
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "string"
               },
@@ -5328,14 +6112,22 @@
                   "type": "string"
                 },
                 "type": "array"
+              },
+              {
+                "type": "null"
               }
             ],
-            "nullable": true,
             "title": "Bcc"
           },
           "account_id": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Account Id"
           }
         },
@@ -5404,8 +6196,14 @@
             "title": "Title"
           },
           "description": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Description"
           },
           "status": {
@@ -5419,32 +6217,56 @@
             "default": "medium"
           },
           "due_at": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Due At"
           },
           "contact_ids": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Contact Ids"
           },
           "company_ids": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Company Ids"
           },
           "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Tags"
           }
         },
@@ -5457,36 +6279,72 @@
       "TaskUpdate": {
         "properties": {
           "title": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Title"
           },
           "description": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Description"
           },
           "status": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Status"
           },
           "priority": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Priority"
           },
           "due_at": {
-            "type": "string",
-            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Due At"
           },
           "tags": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "nullable": true,
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Tags"
           }
         },
@@ -5527,7 +6385,7 @@
         "properties": {
           "loc": {
             "items": {
-              "oneOf": [
+              "anyOf": [
                 {
                   "type": "string"
                 },

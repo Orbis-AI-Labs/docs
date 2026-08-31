@@ -24,46 +24,85 @@ See [Authentication](/api-reference/authentication) for a step-by-step guide to 
 
 ## Rate Limits
 
-Requests are rate-limited per API key using a token bucket algorithm. Rate limit headers are included in every response:
+Requests are rate-limited per API key using a **fixed window of one minute**. Each key has its own budget (`rate_limit_rpm`, default 100 requests/minute); the counter resets at the top of each clock minute. Rate limit headers are included on every response:
 
 | Header | Description |
 |---|---|
-| `X-RateLimit-Limit` | Maximum requests per window |
-| `X-RateLimit-Remaining` | Requests remaining in current window |
-| `X-RateLimit-Reset` | Unix timestamp when the window resets |
+| `X-RateLimit-Limit` | Maximum requests allowed in the current one-minute window |
+| `X-RateLimit-Remaining` | Requests remaining in the current window |
+| `X-RateLimit-Reset` | Seconds until the current window resets |
 
-If you exceed the limit, you'll receive a `429 Too Many Requests` response.
+If you exceed the limit, you'll receive a `429 Too Many Requests` response carrying a `Retry-After` header (seconds to wait) and a problem+json body:
+
+```json
+{
+  "type": "about:blank",
+  "title": "Too Many Requests",
+  "status": 429,
+  "detail": "Rate limit exceeded",
+  "instance": "/v1/contacts"
+}
+```
+
+<Note>
+  The window is fixed, not a rolling token bucket — a burst at the very end of one minute and the start of the next can briefly exceed the nominal per-minute rate. Back off when `X-RateLimit-Remaining` reaches `0` and retry after `Retry-After` seconds.
+</Note>
 
 ## Pagination
 
-List endpoints use cursor-based pagination. Pass the `cursor` query parameter to fetch the next page:
+List endpoints use cursor-based pagination. Pass the `cursor` query parameter to fetch the next page, and use `limit` to control page size (default 20, max 100):
 
 ```bash
-curl "https://api.meetorbis.com/v1/contacts?limit=25&cursor=eyJpZCI6..."
+curl "https://api.meetorbis.com/v1/contacts?limit=25&cursor=2026-08-01T12:00:00Z" \
+  -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
-Response envelope:
+Response envelope — the page of results is in `data`, and pagination state is nested under `meta`:
 
 ```json
 {
   "data": [...],
-  "has_more": true,
-  "next_cursor": "eyJpZCI6..."
+  "meta": {
+    "next_cursor": "2026-07-28T09:14:22Z",
+    "has_more": true,
+    "total": null
+  }
 }
 ```
+
+| Field | Description |
+|---|---|
+| `meta.next_cursor` | Opaque cursor for the next page. Pass it back as the `cursor` query parameter. `null` when there are no more results. |
+| `meta.has_more` | `true` when another page may be available (the page came back full). |
+| `meta.total` | Reserved — total counts are not computed today and this is always `null`. |
+
+<Note>
+  Some read endpoints (sub-resource lists such as a board's tasks or a company's contacts) return a plain `{ "data": [...] }` envelope without `meta`. Only the top-level paginated collections include the `meta` object.
+</Note>
 
 ## Error Format
 
-Errors follow [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) (Problem Details):
+Errors follow [RFC 7807](https://www.rfc-editor.org/rfc/rfc7807) (Problem Details for HTTP APIs) and are served with a `Content-Type: application/problem+json`. Every error uses the generic `about:blank` problem type — the human-readable `title` and `detail` describe the specific problem:
 
 ```json
 {
-  "type": "https://api.meetorbis.com/errors/not-found",
+  "type": "about:blank",
   "title": "Not Found",
   "status": 404,
-  "detail": "Contact with ID abc123 not found."
+  "detail": "Contact not found",
+  "instance": "/v1/contacts/abc123"
 }
 ```
+
+| Field | Description |
+|---|---|
+| `type` | Always `about:blank` — there are no typed problem-type URLs. |
+| `title` | Short, human-readable summary tied to the status code (e.g. `Forbidden`). |
+| `status` | HTTP status code, repeated in the body. |
+| `detail` | Human-readable explanation of this specific error (omitted when there's nothing to add). |
+| `instance` | Request path that produced the error. |
+
+Request-body validation failures (`422`) additionally include an `errors` array with the per-field validation details.
 
 ## Common Status Codes
 
@@ -71,8 +110,10 @@ Errors follow [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) (Problem Detail
 |---|---|
 | `200` | Success |
 | `201` | Created |
-| `400` | Bad request — check your parameters |
-| `401` | Unauthorized — invalid or missing API key |
+| `400` | Bad request — malformed request or nothing to update |
+| `401` | Unauthorized — missing, malformed, expired, or revoked API key |
+| `403` | Forbidden — the API key is missing a required scope |
 | `404` | Resource not found |
-| `429` | Rate limit exceeded |
+| `422` | Unprocessable entity — request body failed validation (see the `errors` array) |
+| `429` | Rate limit exceeded — retry after `Retry-After` seconds |
 | `500` | Internal server error |
