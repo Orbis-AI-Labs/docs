@@ -1,17 +1,13 @@
 ---
 title: "Tools"
-description: "Tools are the building blocks that power skills and agent actions — individual functions like sending an email, looking up a domain, or creating a note."
+description: "Tools are the individual actions behind skills — looking up a contact, reading a thread, creating a note — and the connected services that make them possible."
 ---
 
-Tools are the individual functions that agents execute when using their skills. While skills define broad capabilities (like "communication"), tools are the specific actions within those capabilities — sending an email, looking up a LinkedIn profile, or creating a CRM note.
-
-## How tools relate to skills
-
-Skills are composed of one or more tools. When you assign a skill to an agent, the agent gains access to all the tools bundled in that skill. You don't need to configure tools individually — assigning skills is enough.
+Tools are the individual functions Orbis executes when using a skill. A skill such as "email follow-ups" is composed of a few tools — search email threads, read a thread, look up a contact — and the assistant chooses among them as it works.
 
 ## Built-in tools
 
-Orbis includes a set of built-in tools that power core functionality:
+Orbis includes tools that power its core functionality:
 
 <CardGroup cols={2}>
   <Card title="Contact lookup" icon="user">
@@ -20,11 +16,11 @@ Orbis includes a set of built-in tools that power core functionality:
   <Card title="Company lookup" icon="building">
     Look up company details by domain, including enrichment data
   </Card>
+  <Card title="Email threads" icon="mail">
+    Search and read threads from a connected mailbox
+  </Card>
   <Card title="Note creation" icon="sticky-note">
     Create notes on contact or company profiles
-  </Card>
-  <Card title="Email send" icon="send">
-    Compose and send emails via a connected Gmail account
   </Card>
   <Card title="Web search" icon="globe">
     Search the web for public information about a person or company
@@ -34,10 +30,10 @@ Orbis includes a set of built-in tools that power core functionality:
   </Card>
 </CardGroup>
 
-## Tool execution
+## Connected tools
 
-When an agent runs a task, it decides which tools to call based on the task context and its soul template. Tool calls are logged and visible in the agent's activity feed, so you can review exactly what actions were taken.
+The **Tools** page in the sidebar lists the services Orbis can connect to — Google, LinkedIn and more — and whether each is connected. In chat, `/tools` shows the same list. A skill that needs a service you have not connected will say so.
 
-<Tip>
-  Check the agent's activity log after task execution to see which tools were called and what data was returned. This is useful for debugging unexpected agent behavior.
-</Tip>
+## Tools and scouts
+
+Scouts use a fixed, read-only subset of tools — the ones their skill names, and never anything that sends, drafts or changes a record. Each scout run lists what it looked at alongside what it found, so you can see exactly what was read.

@@ -1,49 +1,18 @@
 ---
 title: "Skills"
-description: "Skills are capabilities you assign to agents, giving them access to specific actions like reading emails, searching contacts, or calling external APIs."
+description: "Skills are the things Orbis knows how to do — for you in chat, and on your behalf as scouts."
 ---
 
-Skills extend what an agent can do. Each skill gives an agent access to a specific capability — like reading emails, searching contacts, or calling an external API.
+A skill is a packaged capability: instructions plus the tools it may use. Orbis uses skills in two ways.
 
-## How skills work
+## Skills in chat
 
-A skill is a self-contained capability that an agent can use when processing tasks. Skills are sourced from a shared skill catalog that your organization can extend, and are organized by category — for example, search skills, communication skills, or data skills.
+The assistant draws on skills when you talk to it — searching your contacts, reading a thread, drafting a note. Type `/skills` in chat to see what is available, and manage which are on under **Settings → Skills**. Some skills need a connected account or an API key before they can be switched on; the settings page asks for it.
 
-An agent without any skills can still read your CRM data and generate insights. Adding skills unlocks the ability to take specific actions.
+## Skills as scouts
 
-## Assigning skills to an agent
-
-<Steps>
-  <Step title="Open the agent">
-    Navigate to **Agents** in the sidebar and click the agent you want to configure.
-  </Step>
-  <Step title="Go to the Skills tab">
-    Click the **Skills** tab on the agent detail page.
-  </Step>
-  <Step title="Add a skill">
-    Click **Add Skill** and search or browse the skill catalog. Click a skill to assign it to the agent.
-  </Step>
-</Steps>
-
-To remove a skill, click the **x** button next to the skill in the agent's Skills tab.
-
-## Skill categories
-
-<CardGroup cols={2}>
-  <Card title="Search" icon="search">
-    Search contacts, companies, notes, and interactions across your workspace
-  </Card>
-  <Card title="Communication" icon="mail">
-    Read and draft emails, access inbox threads
-  </Card>
-  <Card title="Data" icon="database">
-    Enrich contacts, look up company information, access external data sources
-  </Card>
-  <Card title="Actions" icon="zap">
-    Create notes, update contact fields, move board cards, and trigger workflows
-  </Card>
-</CardGroup>
+A [scout](/ai/scouts) is a skill that Orbis runs for you on a schedule instead of waiting to be asked. Scout skills come from Orbis's catalogue and are switched on from the **Scouts** page, where each one shows what it watches, how often it runs and what it found.
 
 <Note>
-  Skills control what an agent *can* do, not what it *will* do. The agent's soul template and assigned board determine when and how it uses its skills.
+  Skills control what Orbis *can* do. In chat, you decide what it does turn by turn; as a scout, the skill's own instructions decide, within a spending limit and a fixed set of read-only tools.
 </Note>

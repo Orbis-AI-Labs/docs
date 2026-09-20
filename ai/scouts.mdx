@@ -1,0 +1,69 @@
+---
+title: "Scouts"
+description: "Scouts watch your accounts on a schedule and turn what they find into Signals — a queue of things that need your attention, with the evidence behind each one."
+---
+
+A scout is a single job Orbis runs for you on a schedule. It watches one thing — for example, email threads where someone is waiting on your reply — and records each thing it finds as a **Signal**. You decide which scouts are on, how often they run, and what they may cost. Scouts never send, reply or change your records; they only look and tell you.
+
+## What a scout is
+
+Each scout is one skill, run on a schedule, with a scope and a spending limit:
+
+| Part | What it means |
+|---|---|
+| **Skill** | The one thing the scout looks for. Scouts come from Orbis's catalogue; the first is **Email follow-ups**. |
+| **Watches** | **Your accounts** (only what you have connected) or **The whole organisation**. |
+| **Runs** | How often it runs: **Every hour**, **Every morning**, **Every afternoon** or **Once a week**. |
+| **Spending limit** | The most one run may spend on AI, shown as "$1.00 a run (default)" until your organisation sets its own. A run that reaches the limit stops and says so. |
+
+## The Email follow-ups scout
+
+Finds email threads where the last message is from the other side and a reply from you is overdue. Each thread becomes one Signal, ranked by how long the other person has waited:
+
+| Waited | Priority |
+|---|---|
+| 7 days or more | **Urgent** |
+| 3 to 6 days | **This week** |
+| Under 3 days | **This month** |
+
+Newsletters, notifications, automated mail and calendar invites are skipped. The scout reads your mail; it never drafts or sends a reply — that stays with you.
+
+## Switching a scout on
+
+<Steps>
+  <Step title="Open Scouts">
+    Click **Scouts** in the sidebar (or press <kbd>g</kbd> then <kbd>w</kbd>). Each row is one scout: whether it is **On**, what it **Watches**, how often it **Runs**, its **Last run**, what it **Found** this week and its **Cost** this month.
+  </Step>
+  <Step title="Switch it on">
+    Use the switch at the start of the row. The scout keeps the schedule shown; change it from the **Runs** picker.
+  </Step>
+  <Step title="Run it now, or wait">
+    Click **Run now** to start a run immediately, or let the schedule start the first one. While a run is in flight the row says **Running now**; afterwards it shows **Finished** with how long ago — hover it for the exact date and time.
+  </Step>
+</Steps>
+
+<Note>
+  New workspaces are asked **What should Orbis watch?** during onboarding; the scouts you tick there are switched on for you. Everything on this page can be changed later.
+</Note>
+
+## What a scout found
+
+Click a scout's name to open its page: its schedule, what it watches, when it next runs, and every run newest first — when it ran, who started it (**Run now** or **On schedule**), the outcome, how long it took and what it cost.
+
+Each run shows a short **Summary** and its **Findings**: one line per thing found, with how important and how confident the scout is, and a link to open the thread in your Inbox or the source page. Findings become Signals — see [Signals](/signals) for where they go and what you can do with them.
+
+A run that did not finish says why in plain words — it reached its spending limit, the model did not answer, or something was not set up right — with details available.
+
+## Notifications
+
+When a scout finds something new you get a notification, **A scout found something**, that opens the Signal. If a scout stops working you get **A scout stopped working**. Both are on by default and can be turned off under **Settings → Orbis → What Orbis tells you**.
+
+## Switching everything off
+
+**Settings → Orbis → Scouts** has an organisation-wide switch. Turning it off stops every scout from running — nothing is deleted, and switching it back on resumes the schedules.
+
+## What scouts do not do
+
+- They do not send email, create drafts, change contacts or move tasks.
+- They do not run when switched off, when the organisation switch is off, or past their spending limit.
+- They do not share what they find beyond the scope they watch: a scout on **Your accounts** produces Signals only you can see.
