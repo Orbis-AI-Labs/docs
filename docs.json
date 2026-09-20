@@ -95,6 +95,7 @@
                 ]
               },
               "investors",
+              "signals",
               "tasks",
               "boards",
               "campaigns",
@@ -124,7 +125,7 @@
             "group": "AI Features",
             "pages": [
               "ai/deep-search",
-              "ai/agents",
+              "ai/scouts",
               "ai/drafts",
               "ai/skills",
               "ai/tools",

@@ -1,146 +1,23 @@
 ---
 title: "Boards"
-description: "Kanban-style workflow boards where AI agents pick up tasks and execute them automatically through defined stages."
+description: "Boards group tasks. Every workspace has its boards from the start; you meet them when you create a task from a Signal or move a task."
 ---
 
-A board is a structured workspace for organizing tasks through stages. Boards become powerful when you assign AI agents to them — the agent picks up queued tasks, executes the work, and moves tasks through the pipeline automatically.
+A board is a named group of tasks. Boards exist so that work from different sources can be kept apart — the follow-ups your scouts surface, the pipeline you run by hand — while [Tasks](/tasks) shows everything together.
 
-## What boards are for
+## Your boards
 
-Boards work well for any process where tasks move through defined stages:
+Every workspace is created with its boards; there is nothing to set up. You will see them in two places:
 
-<CardGroup cols={2}>
-  <Card title="Fundraising pipeline" icon="chart-line">
-    Track investor conversations from first intro to term sheet
-  </Card>
-  <Card title="Sales pipeline" icon="dollar-sign">
-    Follow deals from discovery through negotiation to close
-  </Card>
-  <Card title="Research queue" icon="search">
-    Queue contacts for an agent to research and enrich
-  </Card>
-  <Card title="Outreach pipeline" icon="send">
-    Manage outreach from drafting to sent to replied
-  </Card>
-  <Card title="Recruiting" icon="users">
-    Track candidates from sourcing through offer and onboarding
-  </Card>
-  <Card title="Partnership development" icon="handshake">
-    Coordinate outreach, due diligence, and agreement stages
-  </Card>
-</CardGroup>
+- **Creating a task from a Signal** — the **Create task** action on a [Signal](/signals) files the task on your default board; the arrow beside it lets you pick another.
+- **Moving a task** — the **Board** picker in a task's edit drawer moves it between boards.
 
-## Creating a board
+The **Tasks** board is the default: tasks created without choosing a board land there.
 
-<Steps>
-  <Step title="Open Boards">
-    Click **Boards** in the sidebar.
-  </Step>
-  <Step title="Create a new board">
-    Click **New Board**. Enter a name and an optional objective that describes the board's purpose. The objective gives assigned agents context about what the board is for.
-  </Step>
-  <Step title="Assign an agent (optional)">
-    Assign an AI agent to the board so it can automatically process tasks. See [Agents](/ai/agents) for setup.
-  </Step>
-  <Step title="Start adding tasks">
-    Click **New Task** to add tasks, or assign existing tasks to this board from the task detail panel.
-  </Step>
-</Steps>
+## Boards and the Tasks view
 
-## Board columns
+Boards do not have pages of their own. The **Tasks** view lists tasks across all boards, and its kanban groups them by status, not by board. Use the board picker on a task when you want to file it somewhere specific; otherwise the default board is fine.
 
-Every board uses five stages:
-
-| Column | Purpose |
-|--------|---------|
-| **Queued** | Work lined up but not started — agents pick up tasks from here |
-| **Inbox** | New items arriving for triage |
-| **In Progress** | Actively being worked on (by you or an agent) |
-| **Review** | Awaiting human review or approval |
-| **Done** | Completed |
-
-## How tasks work on boards
-
-Tasks on a board behave like cards on a kanban. You can:
-
-- **Drag cards** between columns to update status
-- **Click a card** to open the task detail panel with all fields, notes, and history
-- **Filter by tag** using the tag bar above the board
-- **Create tasks directly** on the board with the **+** button at the bottom of any column
-
-Each task on a board has a title, priority, due date, linked contact, tags, and notes. See [Tasks](/tasks) for the full breakdown.
-
-## AI agents on boards
-
-This is where boards go beyond a simple kanban. When you assign an AI agent to a board:
-
-1. The agent monitors the **Queued** column on its heartbeat schedule
-2. It picks up tasks, reads the task details and linked contact context
-3. It executes the work — researching, drafting, summarizing, or whatever its skills allow
-4. It moves completed tasks to **Done** or **Review** if human approval is needed
-
-Active agents appear as buttons below the board header with a status indicator (green = active, yellow = provisioning, red = error). Click an agent to open its detail page.
-
-### Board lead
-
-An agent can be designated as the **Board Lead**, giving it primary responsibility for the board's tasks. The board lead takes priority when multiple agents are assigned.
-
-### Approvals
-
-Some tasks may require human approval before an agent proceeds. Click **Approvals** in the board header to see pending approval requests and resolve them.
-
-### Memory
-
-Click **Memory** in the board header to view context your AI agents have stored for this board. Memory helps agents make better decisions by retaining information across tasks.
-
-## Views
-
-Switch between display modes using the view toggle:
-
-<Tabs>
-  <Tab title="Kanban">
-    The default view. Tasks as cards in columns. Drag and drop to move between stages.
-  </Tab>
-  <Tab title="List">
-    Tasks grouped by status in a scrollable list with title, contact, due date, agent, and priority.
-  </Tab>
-  <Tab title="Table">
-    A compact spreadsheet-style view with all task fields as columns.
-  </Tab>
-</Tabs>
-
-## Board types
-
-| Type | Description |
-|------|-------------|
-| **Tasks** | The default org-wide task board — accessed at /tasks, hidden from the boards list |
-| **Pipeline** | Pipeline boards for tracking deals, recruiting, etc. — cannot be deleted |
-| **Custom** | User-created boards for any purpose |
-
-## Board settings
-
-Click **Settings** in the board header to update the board's name, objective, and agent assignments.
-
-### Workflow rules
-
-Boards support 5 configurable workflow rules:
-
-| Rule | Effect |
-|------|--------|
-| **Require review before done** | Tasks must pass through Review before moving to Done |
-| **Require approval for done** | An approval request is created when a task is marked Done |
-| **Comment required for review** | A comment must be added before moving a task to Review |
-| **Block status changes with pending approval** | Tasks with pending approvals can't change status |
-| **Only board lead can change status** | Status changes are restricted to the designated board lead agent |
-
-### Custom fields
-
-Create custom field definitions scoped to the board. Supported types: text, long text, integer, decimal, boolean, date, datetime, URL, and JSON. Custom field values are set per task and appear in the task detail panel.
-
-### Approvals detail
-
-Each approval request includes: action type, status (pending/approved/rejected), a confidence percentage, rubric scores (scored evaluation criteria), the action payload, and agent attribution. Users can approve or reject from the Approvals panel with color-coded confidence badges.
-
-### Memory detail
-
-Board memory is a persistent store of observations, decisions, and context. Entries have content, tags, source, and authorship tracking. Both users and agents can add entries — designed for retaining context across sessions so agents make better-informed decisions over time.
+<Note>
+  Boards used to be the place AI agents picked up queued work. That model was retired in favor of [scouts](/ai/scouts), which watch on a schedule and hand you what they find as Signals — nothing acts on a board task except you and your team.
+</Note>
