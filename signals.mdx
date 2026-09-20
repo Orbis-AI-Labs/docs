@@ -13,12 +13,12 @@ Signals are grouped into four tabs:
 
 | Tab | What is in it |
 |---|---|
-| **New** | Found by a scout and not yet acted on |
-| **Waiting on you** | Signals you have claimed and still need to finish |
+| **New** | Found by a scout and not yet turned into a task or closed. Claiming a Signal keeps it here, marked **You're on it**. |
+| **Waiting on you** | Signals where Orbis needs something from you before it can go further. Today's scouts never ask, so this tab is usually empty. |
 | **In progress** | Signals that became a task |
 | **Done** | Marked done, or dismissed |
 
-Every Signal carries a priority: **Urgent**, **This week**, **This month** or **FYI**. Filter by priority with the picker above the list; **FYI** Signals are hidden until you switch on **Show low-priority Signals**.
+Every Signal carries a priority: **Urgent**, **This week**, **This month** or **FYI**. Filter by priority with the picker above the list. A fifth, lowest tier has no name and is hidden until you switch on **Show low-priority Signals**.
 
 Until a scout has run, the page shows only **No Signals yet** and a button to set up a scout.
 
@@ -34,14 +34,14 @@ Click a Signal to open it beside the list:
 
 | Action | What happens |
 |---|---|
-| **I'll handle it** | Claims the Signal; it moves to **Waiting on you** |
-| **I've answered** | Moves a claimed Signal back to **New** — useful when the reply is sent but you want to keep an eye on it |
+| **I'll handle it** | Marks you as the owner. The Signal stays in **New** with a **You're on it** badge so your team can see it is covered. |
 | **Create task** | Creates a task from the Signal on a board you choose, links the two, and moves the Signal to **In progress** |
 | **Mark done** | Moves the Signal to **Done** |
-| **Dismiss** | Moves it to **Done** with a reason: wrong priority, duplicate, not relevant, wrong owner, or a factual error |
-| **Reopen** | Brings a done or dismissed Signal back to **New** |
+| **Dismiss** | Moves it to **Done** with a reason — wrong priority, duplicate, not relevant, wrong owner, or a factual error. A dismissed Signal cannot be reopened. |
+| **Reopen** | Brings a Signal you marked done back to **New** |
+| **I've answered** | On a Signal in **Waiting on you**, sends it back to **New** |
 
-Every action confirms with a short message and most can be undone from it.
+Each action confirms with a short message; where it makes sense the message offers **Undo**.
 
 <Tip>
   Dismissal reasons are not just bookkeeping — they are how Orbis learns which findings are not worth your time.
@@ -49,6 +49,6 @@ Every action confirms with a short message and most can be undone from it.
 
 ## Where Signals come from
 
-Each scout run records what it found; the same thread found again tomorrow updates yesterday's Signal rather than creating a second one. A notification, **A scout found something**, links straight to the Signal.
+Each scout run records what it found; the same thread found again tomorrow updates yesterday's Signal rather than creating a second one. A notification, **A scout found something**, goes to the person who switched the scout on and links straight to the Signal.
 
 Signals inherit their scope from the scout: a scout watching **Your accounts** produces Signals only you can see; one watching **The whole organisation** produces Signals your whole team can see and act on.
