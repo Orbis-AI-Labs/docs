@@ -1,0 +1,98 @@
+---
+title: "Authentication"
+description: "Create a scoped API key and authenticate requests to the Orbis API."
+---
+
+## Create an API key
+
+1. Open the Orbis dashboard and go to **Settings → API & MCP**
+2. Click **Create key**
+3. Enter a name (e.g. "Production", "CI/CD", "Development")
+4. Choose an **expiry** — 30 days, 90 days (default), 1 year, or no expiry
+5. Choose **permissions** — start from the **Read-only (recommended)** preset, or pick individual scopes; **Full access** grants every scope
+6. Click **Create key**
+
+Keys are generated and hashed on the server; the raw key is returned to your browser exactly once. Copy it immediately and store it securely — it starts with `orbis_k_` and cannot be retrieved later. The MCP client snippets on the same page are pre-filled with the new key until you clear it.
+
+<Warning>
+  This is the only time you'll see the full key. If you lose it, revoke it and create a new one.
+</Warning>
+
+Keys created during onboarding (for connecting an MCP client) use the read-only preset and expire after one year.
+
+## Use the API key
+
+Pass your key as a Bearer token in the `Authorization` header:
+
+```bash
+curl https://api.meetorbis.com/v1/contacts \
+  -H "Authorization: Bearer orbis_k_your_key_here"
+```
+
+Or set it as an environment variable:
+
+```bash
+export ORBIS_API_KEY="orbis_k_your_key_here"
+
+curl https://api.meetorbis.com/v1/contacts \
+  -H "Authorization: Bearer $ORBIS_API_KEY"
+```
+
+`GET /v1/me` returns the user, organisation, and the key's own scopes and rate limit — useful for checking what a key can do.
+
+## Manage keys
+
+From **Settings → API & MCP** you can:
+
+- **View** every key with its name, prefix, scopes, expiry, and last-used date
+- **Revoke** a key — it stops working on both the REST API and the MCP within about a minute (both cache key lookups for 60 seconds)
+
+A request made with a missing, malformed, expired, or revoked key is rejected with `401` (`code: "unauthorized"`) and a `WWW-Authenticate: Bearer realm="orbis"` header. Expiry is exact: a key stops working at its `expires_at` even mid-cache.
+
+## Key format
+
+| Field | Example |
+|---|---|
+| Full key | `orbis_k_` followed by 64 hex characters (256 bits of entropy) |
+| Displayed as | `orbis_k_a3f2b1c9…` (the 16-character prefix) |
+
+## Scopes
+
+Every key carries scopes drawn from a `resource:action` vocabulary, and every endpoint requires one. A request from a key that lacks the endpoint's scope is rejected with `403` (`code: "scope_missing"`, `detail` names the missing scope). The canonical set:
+
+| Scope | Grants |
+|---|---|
+| `contacts:read` / `contacts:write` | Read / manage contacts |
+| `companies:read` / `companies:write` | Read / manage companies |
+| `interactions:read` / `interactions:write` | Read / log interactions |
+| `notes:read` / `notes:write` | Read / manage notes |
+| `emails:read` / `emails:write` | Read email threads / manage drafts |
+| `emails:send` | Send email (`POST /v1/emails`, thread replies, sending drafts) |
+| `calendar:read` / `calendar:write` | Read / manage calendar events |
+| `pipelines:read` / `pipelines:write` | Read / manage boards, tasks, and comments |
+| `campaigns:read` / `campaigns:write` | Read / manage campaigns |
+| `agents:read` / `agents:write` | Read / manage agents and their skills |
+| `enrichment:execute` | Run enrichment lookups and batches (spends provider credit) |
+| `search:execute` | Run global search |
+| `insights:read` | List connected integrations |
+
+The **Read-only** preset is every `*:read` scope plus `search:execute`. `enrichment:execute` is never part of a preset because it spends external-provider credit — add it deliberately.
+
+<Note>
+  Legacy scope names from earlier builds (for example `threads:read`, `boards:read`) are still honoured on existing keys through a fixed one-hop alias map, but new keys can only be created with the canonical scopes above.
+</Note>
+
+### Legacy keys without scopes
+
+Keys created before scoped keys existed carry no scopes and are treated as all-access. They appear in the dashboard as **Unrestricted (legacy)** with a warning. Every API response to such a key includes `Deprecation: @1789430400` (RFC 9745). When a retirement date is scheduled, responses also include `Sunset: <HTTP-date>` (RFC 8594) and the dashboard shows the date; after it, the key receives `403 scope_missing` on every scoped endpoint. Replace legacy keys with scoped ones before then.
+
+## Security best practices
+
+- Never commit API keys to version control
+- Use environment variables or a secrets manager
+- Create separate keys for each environment (development, staging, production)
+- Prefer the read-only preset; grant `*:write`, `emails:send`, and `enrichment:execute` only to integrations that need them
+- Set an expiry and rotate keys before it — the dashboard warns 14 days ahead
+- Revoke keys you no longer need, and monitor the "Last used" date to find unused ones
+</content>
+</invoke>
