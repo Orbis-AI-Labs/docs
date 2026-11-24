@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-description: "Authenticate, paginate, and handle errors with the Orbis API."
+description: "Authenticate, paginate, filter, and handle errors with the Orbis API."
 ---
 
 ## Base URL
@@ -11,84 +11,128 @@ All API requests use the following base URL:
 https://api.meetorbis.com/v1
 ```
 
+The current OpenAPI document is served at `https://api.meetorbis.com/v1/openapi.json`, and an interactive reference at `https://api.meetorbis.com/v1/docs`.
+
 ## Authentication
 
 Authenticate by passing your API key as a Bearer token in the `Authorization` header:
 
 ```bash
 curl https://api.meetorbis.com/v1/contacts \
-  -H "Authorization: Bearer YOUR_API_KEY"
+  -H "Authorization: Bearer orbis_k_..."
 ```
 
-See [Authentication](/api-reference/authentication) for a step-by-step guide to creating and managing API keys.
+A missing, malformed, expired, or revoked key returns `401` with `code: "unauthorized"` and a `WWW-Authenticate: Bearer realm="orbis"` header. A key that lacks a scope the endpoint needs returns `403` with `code: "scope_missing"`.
+
+See [Authentication](/api-reference/authentication) for creating keys, choosing scopes, expiry, and revocation.
+
+### Legacy keys without scopes
+
+Keys created before scoped keys shipped carry no scopes and are treated as all-access for now. Every response to such a key carries a `Deprecation: @1789430400` header (RFC 9745). Once a retirement date is scheduled, responses also carry `Sunset: <HTTP-date>` (RFC 8594), and after that date the key receives `403 scope_missing` on every scoped endpoint. Create a scoped key and replace it — see [Authentication](/api-reference/authentication).
 
 ## Rate Limits
 
-Requests are rate-limited per API key using a **fixed window of one minute**. Each key has its own budget (`rate_limit_rpm`, default 100 requests/minute); the counter resets at the top of each clock minute. Rate limit headers are included on every response:
+Requests are rate-limited per API key using a **fixed window of one minute**. Each key has its own budget (`rate_limit_rpm`, default 100 requests/minute); the counter resets at the top of each clock minute. Rate-limit headers are included on every response from a limited key, using the IETF [RateLimit header fields](https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers/) plus the legacy `X-RateLimit-*` names for one release cycle:
 
 | Header | Description |
 |---|---|
-| `X-RateLimit-Limit` | Maximum requests allowed in the current one-minute window |
-| `X-RateLimit-Remaining` | Requests remaining in the current window |
-| `X-RateLimit-Reset` | Seconds until the current window resets |
+| `RateLimit-Limit` | Maximum requests allowed in the current one-minute window |
+| `RateLimit-Remaining` | Requests remaining in the current window |
+| `RateLimit-Reset` | Seconds until the current window resets |
+| `RateLimit-Policy` | The policy, e.g. `100;w=60` (100 requests per 60-second window) |
+| `X-RateLimit-Limit` / `-Remaining` / `-Reset` | Legacy aliases — will be removed in a future release; migrate to `RateLimit-*` |
 
-If you exceed the limit, you'll receive a `429 Too Many Requests` response carrying a `Retry-After` header (seconds to wait) and a problem+json body:
+Keys configured as unlimited emit no rate-limit headers. If you exceed the limit you receive `429 Too Many Requests` with a `Retry-After` header (seconds to wait) and a problem+json body with `code: "rate_limited"`:
 
 ```json
 {
   "type": "about:blank",
   "title": "Too Many Requests",
   "status": 429,
+  "code": "rate_limited",
   "detail": "Rate limit exceeded",
   "instance": "/v1/contacts"
 }
 ```
 
 <Note>
-  The window is fixed, not a rolling token bucket — a burst at the very end of one minute and the start of the next can briefly exceed the nominal per-minute rate. Back off when `X-RateLimit-Remaining` reaches `0` and retry after `Retry-After` seconds.
+  The window is fixed, not a rolling token bucket — a burst at the very end of one minute and the start of the next can briefly exceed the nominal per-minute rate. Back off when `RateLimit-Remaining` reaches `0` and retry after `Retry-After` seconds.
 </Note>
+
+## Response envelopes
+
+Every successful response wraps its payload in `data`:
+
+| Shape | When |
+|---|---|
+| `{ "data": { ... } }` | A single resource — `GET /{id}`, and the resource returned by `POST` (create) and `PATCH` |
+| `{ "data": [ ... ], "meta": { ... } }` | Every collection, including sub-resource lists such as a contact's tasks — see [Pagination](#pagination) |
+| `{ "data": { ... }, "meta": { ... } }` | Composite results such as `POST /v1/search` (buckets) or `POST /v1/campaigns` (`meta.generation`) |
+| _empty body_ | `DELETE` succeeds with `204 No Content` |
+
+- **Create** endpoints return `201 Created`, a `Location` header pointing at the new resource, and the resource itself.
+- **Update** (`PATCH`) is partial: send only the fields you want to change; an explicit `null` clears a field; an empty body is `422`; unknown fields are `422`. The updated resource is returned.
+- **Delete** returns `204` (also for soft deletes such as discarding a draft) and `404` if the resource does not exist for you.
+- **Actions** with external side effects (`POST .../send`, `.../reply`, `.../generate`, `.../archive`, `.../trash`) return `200` with `{ "data": ... }`.
+- Asynchronous enrichment lookups return `202 Accepted` with a `job_id` you can poll.
 
 ## Pagination
 
-List endpoints use cursor-based pagination. Pass the `cursor` query parameter to fetch the next page, and use `limit` to control page size (default 20, max 100):
+Every collection endpoint uses **keyset (cursor) pagination**. Pass `limit` (1–100, default 20) and, for the next page, the `cursor` from the previous response's `meta.next_cursor`. Where an endpoint supports sorting, `sort=<field>` and `order=asc|desc` select the key:
 
 ```bash
-curl "https://api.meetorbis.com/v1/contacts?limit=25&cursor=2026-08-01T12:00:00Z" \
-  -H "Authorization: Bearer YOUR_API_KEY"
+curl "https://api.meetorbis.com/v1/contacts?limit=25&sort=created_at&order=desc&cursor=eyJ..." \
+  -H "Authorization: Bearer orbis_k_..."
 ```
-
-Response envelope — the page of results is in `data`, and pagination state is nested under `meta`:
 
 ```json
 {
   "data": [...],
   "meta": {
-    "next_cursor": "2026-07-28T09:14:22Z",
-    "has_more": true,
-    "total": null
+    "limit": 25,
+    "next_cursor": "WyIyMDI2LTA3LTI4VDA5OjE0OjIyWiIsImFiYyJd",
+    "has_more": true
   }
 }
 ```
 
 | Field | Description |
 |---|---|
-| `meta.next_cursor` | Opaque cursor for the next page. Pass it back as the `cursor` query parameter. `null` when there are no more results. |
-| `meta.has_more` | `true` when another page may be available (the page came back full). |
-| `meta.total` | Reserved — total counts are not computed today and this is always `null`. |
+| `meta.limit` | The page size that produced this page. |
+| `meta.next_cursor` | Opaque cursor for the next page. Pass it back unchanged as the `cursor` query parameter. `null` when there are no more results. |
+| `meta.has_more` | `true` when another page is available. |
 
-<Note>
-  Some read endpoints (sub-resource lists such as a board's tasks or a company's contacts) return a plain `{ "data": [...] }` envelope without `meta`. Only the top-level paginated collections include the `meta` object.
-</Note>
+Cursors are opaque and tied to the `sort`/`order` that produced them — reuse a cursor only with the same sort. A malformed or foreign cursor is rejected with `422 validation_failed`. There is no `offset` parameter and no total count.
+
+## Filtering
+
+Filters are query parameters on collection endpoints; each endpoint's reference page lists its own.
+
+| Convention | Example |
+|---|---|
+| Exact match | `?status=active` |
+| Text search | `?q=acme` — most list endpoints; `?mode=fulltext` switches notes, interactions, and threads from substring matching to full-text search |
+| Date ranges | `?created_after=2026-09-01T00:00:00Z&created_before=2026-09-15T00:00:00Z` — always `<field>_after` / `<field>_before`, ISO 8601 |
+| Booleans | `?has_email=false` |
+| Lists | Repeat the parameter: `?tags=vip&tags=investor` |
+| Enumerations | Validated — an unknown value is `422` and the error lists the allowed values |
+
+## Idempotency
+
+Endpoints with external side effects accept an `Idempotency-Key` header (1–200 characters): `POST /v1/emails`, `POST /v1/threads/{id}/reply`, `POST /v1/drafts/{id}/send`, `POST /v1/drafts/generate`, `POST /v1/campaigns/{id}/generate`, and `POST /v1/campaigns/{id}/contacts`.
+
+Repeating a request with the same key and the same body within 24 hours replays the original response (same status and body) with an `Idempotent-Replayed: true` header instead of performing the action again. The same key with a different body is rejected with `422 idempotency_key_reused`. Keys are scoped to your API key's user, organization, and the endpoint.
 
 ## Error Format
 
-Errors follow [RFC 7807](https://www.rfc-editor.org/rfc/rfc7807) (Problem Details for HTTP APIs) and are served with a `Content-Type: application/problem+json`. Every error uses the generic `about:blank` problem type — the human-readable `title` and `detail` describe the specific problem:
+Errors follow [RFC 7807](https://www.rfc-editor.org/rfc/rfc7807) (Problem Details for HTTP APIs) and are served with `Content-Type: application/problem+json`. In addition to the RFC fields, every error carries a stable, machine-readable `code`:
 
 ```json
 {
   "type": "about:blank",
   "title": "Not Found",
   "status": 404,
+  "code": "not_found",
   "detail": "Contact not found",
   "instance": "/v1/contacts/abc123"
 }
@@ -97,23 +141,69 @@ Errors follow [RFC 7807](https://www.rfc-editor.org/rfc/rfc7807) (Problem Detail
 | Field | Description |
 |---|---|
 | `type` | Always `about:blank` — there are no typed problem-type URLs. |
-| `title` | Short, human-readable summary tied to the status code (e.g. `Forbidden`). |
+| `title` | Short, human-readable summary tied to the status code. |
 | `status` | HTTP status code, repeated in the body. |
-| `detail` | Human-readable explanation of this specific error (omitted when there's nothing to add). |
+| `code` | Stable snake_case error code — switch on this, not on `detail`. |
+| `detail` | Human-readable explanation of this specific error (omitted when there's nothing to add). May be reworded. |
 | `instance` | Request path that produced the error. |
+| `errors` | Present only on `validation_failed`: the per-field validation details. |
 
-Request-body validation failures (`422`) additionally include an `errors` array with the per-field validation details.
+### Error codes
+
+| `code` | Status | Meaning |
+|---|---|---|
+| `unauthorized` | 401 | Missing, malformed, expired, or revoked API key |
+| `reauth_required` | 401 | The connected Google account needs to be re-authorised in Orbis |
+| `scope_missing` | 403 | The API key lacks a required scope, or is a legacy unscoped key past its sunset |
+| `forbidden` | 403 | Other authorisation failure |
+| `not_found` | 404 | The resource does not exist, or is not visible to your key's user/organisation |
+| `method_not_allowed` | 405 | HTTP method not supported on this path |
+| `conflict` | 409 | The request conflicts with current state |
+| `draft_already_sent` | 409 | The draft was already sent, is sending, or was discarded |
+| `validation_failed` | 422 | Request body or query parameters failed validation (see `errors`) |
+| `idempotency_key_reused` | 422 | The `Idempotency-Key` was already used with a different request body |
+| `unsupported_provider` | 422 | The action needs a Gmail thread (e.g. replying to a chat thread) |
+| `recipient_not_in_contacts` | 422 | Outbound email/invite blocked: a recipient is not one of your contacts |
+| `content_flagged` | 422 | Outbound content blocked by moderation |
+| `rate_limited` | 429 | Rate limit exceeded — retry after `Retry-After` seconds |
+| `bad_request` | 400 | Unparseable request syntax |
+| `internal_error` | 500 | Unexpected server error |
+| `upstream_error` | 502 | A downstream service (mail, calendar, enrichment) failed |
+| `service_unavailable` | 503 | Temporarily unavailable |
+| `upstream_timeout` | 504 | A downstream service timed out |
+
+## Outbound guardrails
+
+Sending email, replying to threads, and creating calendar invites is only permitted to people who are already in your contacts. A request naming any other recipient is rejected with `422 recipient_not_in_contacts`; content that fails moderation is rejected with `422 content_flagged`. There is no override flag on the API — add the person as a contact first.
 
 ## Common Status Codes
 
 | Code | Meaning |
 |---|---|
-| `200` | Success |
-| `201` | Created |
-| `400` | Bad request — malformed request or nothing to update |
-| `401` | Unauthorized — missing, malformed, expired, or revoked API key |
-| `403` | Forbidden — the API key is missing a required scope |
-| `404` | Resource not found |
-| `422` | Unprocessable entity — request body failed validation (see the `errors` array) |
+| `200` | Success (reads, updates, actions) |
+| `201` | Created — includes a `Location` header |
+| `202` | Accepted — asynchronous enrichment job queued |
+| `204` | No Content — successful delete |
+| `400` | Bad request — unparseable syntax only |
+| `401` | Unauthorized — see `code` |
+| `403` | Forbidden — missing scope |
+| `404` | Resource not found (or not yours) |
+| `409` | Conflict |
+| `422` | Unprocessable — validation, guardrail, or idempotency error (see `code`) |
 | `429` | Rate limit exceeded — retry after `Retry-After` seconds |
 | `500` | Internal server error |
+| `502` / `504` | Downstream service failed / timed out |
+
+## Changes in this release (v1 baseline)
+
+This release corrects the v1 contract in place; there is no `/v2`. If you integrated against an earlier build, note:
+
+- **Removed:** `POST /v1/emails/draft`, `PATCH`/`DELETE /v1/emails/draft/{id}`, `POST /v1/emails/draft/{id}/send` → use [`/v1/drafts`](/api-reference/drafts). `POST /v1/emails/send` → `POST /v1/emails`. `POST /v1/campaigns/{id}/archive` → `PATCH /v1/campaigns/{id}` with `{ "status": "archived" }`. `GET`/`POST /v1/boards/{slug}/tasks` → `GET`/`POST /v1/tasks` (optional `board_slug`).
+- **Added:** `/v1/drafts` (Orbis drafts, the campaign pipeline), `/v1/tasks` (cross-board), `GET /v1/me`, `GET /v1/integrations`, `PATCH /v1/campaigns/{id}`, `POST /v1/campaigns/{id}/generate`, `messages` on `GET /v1/threads/{id}`, `q`/`mode` on threads and interactions, and many filters (see each endpoint).
+- **Shapes:** creates return `201` + the resource (previously `200` + `{ id, created }`); deletes return `204` (previously `200` + `{ id, deleted }`); updates return the resource; every collection — including sub-resource lists — returns `{ data, meta }`.
+- **Pagination:** `cursor` is now opaque keyset (previously a raw timestamp); `meta.limit` added; `meta.total` removed.
+- **Errors:** every problem carries `code`; empty or invalid `PATCH` bodies are `422` (previously `400`); downstream failures are `502`/`504` instead of `500`.
+- **Parameters:** date filters are `<field>_after` / `<field>_before` (previously bare `after`/`before`); `POST /v1/search` takes `resources` and `limit` (previously `types`/`size`).
+- **Headers:** `RateLimit-*` added (legacy `X-RateLimit-*` kept for one release); unlimited keys emit none; `Deprecation`/`Sunset` on legacy unscoped keys.
+</content>
+</invoke>

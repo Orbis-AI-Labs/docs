@@ -251,34 +251,55 @@
               "api-reference/campaigns/list-campaigns",
               "api-reference/campaigns/create-campaign",
               "api-reference/campaigns/get-campaign",
+              "api-reference/campaigns/update-campaign",
               "api-reference/campaigns/delete-campaign",
               "api-reference/campaigns/list-contacts",
               "api-reference/campaigns/add-contacts",
-              "api-reference/campaigns/archive"
+              "api-reference/campaigns/generate"
             ]
           },
           {
             "group": "Emails",
             "pages": [
-              "api-reference/emails/send-email",
-              "api-reference/emails/create-draft",
-              "api-reference/emails/update-draft",
-              "api-reference/emails/discard-draft",
-              "api-reference/emails/send-draft"
+              "api-reference/emails/send-email"
+            ]
+          },
+          {
+            "group": "Drafts",
+            "pages": [
+              "api-reference/drafts/list-drafts",
+              "api-reference/drafts/create-draft",
+              "api-reference/drafts/generate-draft",
+              "api-reference/drafts/get-draft",
+              "api-reference/drafts/update-draft",
+              "api-reference/drafts/discard-draft",
+              "api-reference/drafts/send-draft"
+            ]
+          },
+          {
+            "group": "Account",
+            "pages": [
+              "api-reference/account/me"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "api-reference/integrations/list-integrations"
             ]
           },
           {
             "group": "Boards",
             "pages": [
               "api-reference/boards/list-boards",
-              "api-reference/boards/get-board",
-              "api-reference/boards/list-tasks",
-              "api-reference/boards/create-task"
+              "api-reference/boards/get-board"
             ]
           },
           {
             "group": "Tasks",
             "pages": [
+              "api-reference/tasks/list-tasks",
+              "api-reference/tasks/create-task",
               "api-reference/tasks/get-task",
               "api-reference/tasks/update-task",
               "api-reference/tasks/delete-task",
